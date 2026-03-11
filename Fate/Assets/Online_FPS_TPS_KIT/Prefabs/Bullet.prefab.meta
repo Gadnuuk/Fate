@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: eb7180f8d9076054990a57a8ebed35b0
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Prefabs/Bullet.prefab
+  uploadId: 589329

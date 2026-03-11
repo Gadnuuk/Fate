@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b2d9ab01e25a94840b500001933ef0f9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Settings/URP/URP Pipeline.asset
+  uploadId: 589329

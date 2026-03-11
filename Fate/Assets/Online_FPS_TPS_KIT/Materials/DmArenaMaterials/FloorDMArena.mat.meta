@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 02aeecbaff1df4f438090ff159c7f0b2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Materials/DmArenaMaterials/FloorDMArena.mat
+  uploadId: 589329

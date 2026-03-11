@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8eaa162d5a934e14ea805d3d76c49170
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Scripts/WeaponScripts/WeaponPickupNetwork.cs
+  uploadId: 589329

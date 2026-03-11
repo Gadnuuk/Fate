@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d6e481471d3d7184cbf55509b010a72a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Prefabs/PistolParticle.prefab
+  uploadId: 589329

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6a589511861294f4a89ce11af6707e95
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Models/Weapons/Materials/WeaponElement.mat
+  uploadId: 589329

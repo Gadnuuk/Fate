@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d18c29957eddc32489fc4bc7c10cdacc
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Models/Weapons/Materials/weponBody.mat
+  uploadId: 589329

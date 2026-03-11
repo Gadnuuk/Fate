@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 46a4cef94db477b44853ac449a673553
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Prefabs/weapons/Glok_Pistol.prefab
+  uploadId: 589329

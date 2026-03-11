@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ef68ae0ac71a5d14fb2bdcc5260cdaea
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Materials/WeaponSightMaterials/ScoupeMaterial.mat
+  uploadId: 589329

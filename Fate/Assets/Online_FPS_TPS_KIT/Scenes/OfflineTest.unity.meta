@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 191e69545486c3440adddfd03704cfce
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Scenes/OfflineTest.unity
+  uploadId: 589329

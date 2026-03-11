@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 50a72d0099d5b60408e13c1be2dfceec
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Scripts/EventsSystem/Interfaces/IEventsLists.cs
+  uploadId: 589329

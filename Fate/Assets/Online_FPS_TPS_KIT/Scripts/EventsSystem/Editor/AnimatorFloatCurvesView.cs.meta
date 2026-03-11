@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: aaa105566b43b4946907270c3e7940a4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Scripts/EventsSystem/Editor/AnimatorFloatCurvesView.cs
+  uploadId: 589329

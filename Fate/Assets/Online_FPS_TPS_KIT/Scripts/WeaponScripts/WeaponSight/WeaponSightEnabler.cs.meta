@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7a5c0421b7f3c5e4c8363e348346834f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Scripts/WeaponScripts/WeaponSight/WeaponSightEnabler.cs
+  uploadId: 589329

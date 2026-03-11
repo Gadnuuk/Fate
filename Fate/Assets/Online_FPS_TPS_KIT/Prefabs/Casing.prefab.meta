@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 661b58a306f4c9e49b2e72425e3705c6
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Prefabs/Casing.prefab
+  uploadId: 589329

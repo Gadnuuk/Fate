@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 44110706234f8804ab41903bd72dbbac
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Scripts/v3.2/RIG/LocalRigs/TransformToTargetRig.cs
+  uploadId: 589329

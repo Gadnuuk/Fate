@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 632d4c01425074241b1335daba197850
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Scripts/EventsSystem/AnimatorFloatCurveModel.cs
+  uploadId: 589329

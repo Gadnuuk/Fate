@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6d8b9a372136d8a419bc5adef59bd4d7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/Scripts/Player/BodyScripts/BodyTiltInSprint.cs
+  uploadId: 589329

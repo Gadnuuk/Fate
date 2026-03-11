@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8fd149b3c67e6bf41b6921e8e031f61d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178772
+  packageName: Online FPS / TPS kit
+  packageVersion: 3.2.0
+  assetPath: Assets/Online_FPS_TPS_KIT/CinemachineComponents/CameraSwitcher.cs
+  uploadId: 589329
