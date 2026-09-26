@@ -20,5 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FishNet/Demos/SceneManager/Additive Scenes/Scenes/AdditiveScenes_3.unity
     guid: 8ac819f926d1e914e9552e79c147082d
+  - enabled: 1
+    path: Assets/Fate/Assets/Scenes/Core/splash.unity
+    guid: 63a703b8460e12841b0591bd2c35fbe3
+  - enabled: 1
+    path: Assets/Fate/Assets/Scenes/Core/main_menu.unity
+    guid: 674accacf312dd049a8a1111e013c5ae
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

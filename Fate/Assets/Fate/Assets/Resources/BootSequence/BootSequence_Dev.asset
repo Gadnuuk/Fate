@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffac00d6adc0086449cbb7cdbe31ca0d, type: 3}
+  m_Name: BootSequence_Dev
+  m_EditorClassIdentifier: Assembly-CSharp::Fate.Systems.Boot.BootSequence
+  scenes:
+  - sceneAsset: {fileID: 102900000, guid: 63a703b8460e12841b0591bd2c35fbe3, type: 3}
+    sceneName: splash
+    scenePath: Assets/Fate/Assets/Scenes/core/splash.unity
+  contentBundle: {fileID: 11400000, guid: 735b46d7ffda471e8a76cc63e9ab9fb5, type: 2}
