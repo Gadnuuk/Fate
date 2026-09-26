@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk -F'/' '{print $2}')",
+      "Bash(grep -v \"\\\\.meta$\")",
+      "Read(//c/Program Files/Unity/Hub/Editor/**)",
+      "Read(//c/Program Files/Unity/Hub/Editor/6000.0.49f1/Editor/**)",
+      "Bash(cd \"D:\\\\Projects\\\\personal\\\\Fate\\\\Fate\" && mkdir -p \"Assets/Fate/Scripts/Editor\")",
+      "Bash(ls -la \"Assets/FishNet/Demos.meta\")",
+      "Bash(du -sh \"Assets/FishNet/Demos\")"
+    ]
+  }
+}

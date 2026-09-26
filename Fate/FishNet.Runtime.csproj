@@ -49,6 +49,7 @@
     <Analyzer Include="D:\Projects\personal\Fate\Fate\Assets\FishNet\Runtime\Plugins\CodeAnalysis\FishNet.CodeAnalysis.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\FishNet\Runtime\Generated\Component\TickSmoothing\TransformTickSmoother.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\Channels.cs" />
     <Compile Include="Assets\FishNet\Runtime\Utility\Performance\DefaultObjectPool.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\Synchronizing\SyncHashSetOperation.cs" />
@@ -62,7 +63,6 @@
     <Compile Include="Assets\FishNet\Runtime\Managing\Object\ObjectSpawnType.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Tugboat\LiteNetLib\NetConstants.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\NetworkBehaviour\SyncTypeWriteType.cs" />
-    <Compile Include="Assets\FishNet\Runtime\Utility\AdaptiveInterpolationType.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Tugboat\LiteNetLib\NetDebug.cs" />
     <Compile Include="Assets\FishNet\Runtime\Utility\Performance\Transforms.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Observing\ObserverManager.cs" />
@@ -94,7 +94,6 @@
     <Compile Include="Assets\FishNet\Runtime\Observing\HostVisibilityUpdateTypes.cs" />
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\TickSmoothing\Editor\MovementSettingsDrawer.Threaded.cs" />
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\NetworkTransform\SynchronizedProperty.cs" />
-    <Compile Include="Assets\FishNet\Runtime\Utility\LocalTransformTickSmoother.cs" />
     <Compile Include="Assets\FishNet\Runtime\Serializing\UnityMathmatics\Serializers.UnityMathmaticsDouble.cs" />
     <Compile Include="Assets\FishNet\Runtime\Serializing\WriterStatics.cs" />
     <Compile Include="Assets\FishNet\Runtime\Observing\Conditions\DistanceCondition.cs" />
@@ -106,7 +105,6 @@
     <Compile Include="Assets\FishNet\Runtime\Managing\Statistic\Types.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\NetworkBehaviour\NetworkBehaviour.SyncTypes.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Tugboat\LiteNetLib\NetManager.PacketPool.cs" />
-    <Compile Include="Assets\FishNet\Runtime\Editor\NetworkProfiler\Types.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\NetworkObject\NetworkObject.RpcLinks.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Object\PrefabObjects\SinglePrefabObjects.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Multipass\Multipass.cs" />
@@ -114,7 +112,6 @@
     <Compile Include="Assets\FishNet\Runtime\Managing\Utility\Utility.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\NetworkObject\NetworkObject.cs" />
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\TakeOwnership\PredictedSpawn.cs" />
-    <Compile Include="Assets\FishNet\Runtime\Utility\TransformTickSmoother.cs" />
     <Compile Include="Assets\FishNet\Runtime\Editor\Configuring\SettingsProvider.cs" />
     <Compile Include="Assets\FishNet\Runtime\Observing\ObserverCondition.cs" />
     <Compile Include="Assets\FishNet\Runtime\Connection\NetworkConnection.Prediction.cs" />
@@ -132,6 +129,7 @@
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Tugboat\LiteNetLib\ReliableChannel.cs" />
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\TickSmoothing\TickSmootherController.cs" />
     <Compile Include="Assets\FishNet\Runtime\Serializing\ReaderPool.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Editor\NetworkProfiler\PacketGroup.cs" />
     <Compile Include="Assets\FishNet\Runtime\Connection\NetworkConnection.Observers.cs" />
     <Compile Include="Assets\FishNet\Runtime\Observing\Conditions\GridCondition\HashGrid.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Server\ServerManager.Broadcast.cs" />
@@ -199,6 +197,7 @@
     <Compile Include="Assets\FishNet\Runtime\Object\NetworkBehaviour\NetworkBehaviour.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Tugboat\LiteNetLib\NetManager.HashSet.cs" />
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\Prediction\NetworkCollision.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Generated\Component\TickSmoothing\SnappedAxes.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\Synchronizing\SyncHashset.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\RemoteTimeoutType.cs" />
     <Compile Include="Assets\FishNet\Runtime\Serializing\AutoPackType.cs" />
@@ -222,6 +221,7 @@
     <Compile Include="Assets\FishNet\Runtime\Utility\Performance\ByteArrayPool.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\Helping\RpcType.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\NetworkBehaviour\NetworkBehaviour.RPCLinks.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Utility\PrimeNumberFinder.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Object\SpawnParentType.cs" />
     <Compile Include="Assets\FishNet\Runtime\Editor\Constants.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\NetworkWriterLoop.cs" />
@@ -229,7 +229,9 @@
     <Compile Include="Assets\FishNet\Runtime\Managing\Statistic\StatisticsManager.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\NetworkManager.Logging.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Prediction\StateOrder.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Editor\NetworkProfiler\ProfiledTickData.cs" />
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\TickSmoothing\TickSmootherController.Threaded.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Managing\Observing\ObserverManager.LevelOfDetail.cs" />
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\Spawning\PlayerSpawner.cs" />
     <Compile Include="Assets\FishNet\Runtime\Plugins\ColliderRollback\Scripts\ColliderSnapshot.Threaded.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Tugboat\Tugboat.cs" />
@@ -240,6 +242,7 @@
     <Compile Include="Assets\FishNet\Runtime\Managing\Transporting\TransportManager.QOL.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Server\ClientConnectionBroadcast.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Scened\SceneLookupData.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Editor\NetworkProfiler\BidirectionNetworkTraffic.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Server\Object\ServerObjects.Observers.cs" />
     <Compile Include="Assets\FishNet\Runtime\Serializing\ReaderExtensions.cs" />
     <Compile Include="Assets\FishNet\Runtime\Editor\Configuring\DelayedEditorTasks.cs" />
@@ -247,6 +250,7 @@
     <Compile Include="Assets\FishNet\Runtime\Managing\Object\PrefabObjects\PrefabObjects.cs" />
     <Compile Include="Assets\FishNet\Runtime\Editor\NewNetworkBehaviour\SettingsProvider.cs" />
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\Prediction\OfflineRigidbody.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Editor\NetworkProfiler\NetworkTraffic.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\NetworkBehaviour\Attributes.cs" />
     <Compile Include="Assets\FishNet\Runtime\Plugins\Yak\Core\CommonSocket.cs" />
     <Compile Include="Assets\FishNet\Runtime\Serializing\DeltaSerializerOption.cs" />
@@ -258,7 +262,6 @@
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Tugboat\LiteNetLib\NetUtils.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Scened\LoadUnloadDatas\ReplaceOption.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\NetworkObject\NetworkObject.SyncTypes.cs" />
-    <Compile Include="Assets\FishNet\Runtime\Utility\SnappedAxes.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Editor\NetworkManagerEditor.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Server\ServerManager.cs" />
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\Prediction\NetworkTrigger.cs" />
@@ -297,6 +300,7 @@
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\Prediction\NetworkCollider.cs" />
     <Compile Include="Assets\FishNet\Runtime\Serializing\Writer.cs" />
     <Compile Include="Assets\FishNet\Runtime\Observing\Conditions\MatchCondition.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Managing\Observing\LevelOfDetail.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Tugboat\LiteNetLib\NetManager.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\NetworkBehaviour\RpcLinkType.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\NetworkBehaviour\NetworkBehaviour.RPCs.cs" />
@@ -305,7 +309,6 @@
     <Compile Include="Assets\FishNet\Runtime\Object\Prediction\ReplicateDataContainer.cs" />
     <Compile Include="Assets\FishNet\Runtime\Connection\EstimatedTick.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Tugboat\LiteNetLib\Utils\FastBitConverter.cs" />
-    <Compile Include="Assets\FishNet\Runtime\Utility\AdaptiveLocalTransformSmoother.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Statistic\NetworkTrafficStatistics.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\NetworkManager.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\ChangedTransformProperties.cs" />
@@ -328,8 +331,8 @@
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\TickSmoothing\MovementSettings.Threaded.cs" />
     <Compile Include="Assets\FishNet\Runtime\Plugins\Yak\Core\ServerSocket.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\NetworkObject\NetworkObject.Prediction.cs" />
-    <Compile Include="Assets\FishNet\Runtime\Serializing\GenericDeltaReader.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Tugboat\Core\ClientSocket.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Serializing\GenericDeltaReader.cs" />
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\Spawning\ServerSpawner.cs" />
     <Compile Include="Assets\FishNet\Runtime\Observing\Conditions\OwnerOnlyCondition.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Statistic\NetworkTrafficArgs.cs" />
@@ -348,6 +351,7 @@
     <Compile Include="Assets\FishNet\Runtime\Object\Synchronizing\WritePermissions.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Client\ClientManager.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Tugboat\Editor\TugboatEditor.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Object\NetworkObject\NetworkObject.LevelOfDetail.cs" />
     <Compile Include="Assets\FishNet\Runtime\Serializing\UnityMathmatics\Serializers.UnityMathmaticsUInt.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Server\KickReasons.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Logging\LoggingType.cs" />
@@ -368,6 +372,7 @@
     <Compile Include="Assets\FishNet\Runtime\Managing\Timing\TimeManager.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\Synchronizing\MissingObjectPacketLength.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\NetworkBehaviour\EmptyNetworkBehaviour.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Editor\NetworkProfiler\Packet.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Server\ServerManager.QOL.cs" />
     <Compile Include="Assets\FishNet\Runtime\Utility\Constants.cs" />
     <Compile Include="Assets\FishNet\Runtime\Utility\Extension\Transforms.cs" />
@@ -393,8 +398,8 @@
     <Compile Include="Assets\FishNet\Runtime\Serializing\WriterPool.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Transporting\TransportManager.cs" />
     <Compile Include="Assets\FishNet\Runtime\Serializing\Helping\Quaternion64Compression.cs" />
-    <Compile Include="Assets\FishNet\Runtime\Generated\Component\Prediction\NetworkTrigger2D.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Logging\Editor\LevelLoggingConfigurationEditor.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Generated\Component\Prediction\NetworkTrigger2D.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Scened\Events\ClientPresenceChangeEventArgs.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\Synchronizing\InterpolatedSyncVars.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\PacketId.cs" />
@@ -402,6 +407,7 @@
     <Compile Include="Assets\FishNet\Runtime\Generated\Component\Utility\DefaultScene.cs" />
     <Compile Include="Assets\FishNet\Runtime\Serializing\ReaderStatics.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\Prediction\LocalReconcile.cs" />
+    <Compile Include="Assets\FishNet\Runtime\Object\Prediction\LocalTransformTickSmoother.cs" />
     <Compile Include="Assets\FishNet\Runtime\Transporting\Transports\Tugboat\LiteNetLib\Utils\NetPacketProcessor.cs" />
     <Compile Include="Assets\FishNet\Runtime\Object\Synchronizing\ReadPermissions.cs" />
     <Compile Include="Assets\FishNet\Runtime\Managing\Client\Object\ClientObjects.RpcLinks.cs" />

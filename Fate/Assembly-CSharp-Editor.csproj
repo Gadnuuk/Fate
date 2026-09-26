@@ -53,6 +53,7 @@
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\EventsSystem\Editor\ModelPreview.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\EventsSystem\Editor\GUISplitWindow.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\Fate\Scripts\Editor\URPMigrationTools.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\EventsSystem\Editor\EventsTimelineModel.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\EventsSystem\Editor\PlayeblePanel.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\EventsSystem\Editor\AnimatorFloatCurvesView.cs" />
@@ -1376,6 +1377,7 @@
     <ProjectReference Include="FishNet.Codegen.Cecil.csproj" />
     <ProjectReference Include="FishNet.Demos.csproj" />
     <ProjectReference Include="GameKit.Dependencies.csproj" />
+    <ProjectReference Include="SynapseSocket.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>

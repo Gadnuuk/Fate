@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PolygonPrototype_Object
-  m_Shader: {fileID: -6465566751694194690, guid: 3f6cafd8e6c7439468e51113a73ddc7b, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0335a1d8a6f92a5418f172da855570ad, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -52,7 +52,7 @@ Material:
     - _BaseColor: {r: 0.06228374, g: 0.8320726, b: 0.9411765, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6567520871389024187
+--- !u!114 &4732887798818769946
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

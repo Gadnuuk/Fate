@@ -1402,6 +1402,7 @@
     <ProjectReference Include="FishNet.Codegen.Cecil.csproj" />
     <ProjectReference Include="FishNet.Demos.csproj" />
     <ProjectReference Include="GameKit.Dependencies.csproj" />
+    <ProjectReference Include="SynapseSocket.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>

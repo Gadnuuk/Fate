@@ -52,7 +52,6 @@
     <Compile Include="Assets\FishNet\Runtime\Plugins\GameKit\Dependencies\Utilities\Types\Canvases\RectTransformResizer.cs" />
     <Compile Include="Assets\FishNet\Runtime\Plugins\GameKit\Dependencies\Utilities\Types\Vector2Range.cs" />
     <Compile Include="Assets\FishNet\Runtime\Plugins\GameKit\Dependencies\Utilities\Types\TimedOperation.cs" />
-    <Compile Include="Assets\FishNet\Runtime\Plugins\GameKit\Dependencies\Utilities\Guids.cs" />
     <Compile Include="Assets\FishNet\Runtime\Plugins\GameKit\Dependencies\Utilities\Hashing.cs" />
     <Compile Include="Assets\FishNet\Runtime\Plugins\GameKit\Dependencies\Utilities\Maths.cs" />
     <Compile Include="Assets\FishNet\Runtime\Plugins\GameKit\Dependencies\Utilities\Materials.cs" />
