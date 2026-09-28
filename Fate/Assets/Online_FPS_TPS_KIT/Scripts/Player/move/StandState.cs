@@ -52,9 +52,9 @@ public class StandState : MoveStateBase
 
     public override void Tick()
     {
-        var inputVector = characterMove.InputRig.Move;
+        var inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        isSprint = (characterMove.InputRig.SprintHeld && inputVector.y > 0 && !walk);
+        isSprint = (Input.GetKey(KeyCode.LeftShift) && inputVector.y > 0 && !walk);
 
         Quaternion moveForward = Quaternion.Euler(0, characterMove.directionOrienter.rotation.eulerAngles.y, 0);
 
@@ -68,12 +68,12 @@ public class StandState : MoveStateBase
         characterMove.moveVelocity = Vector3.ClampMagnitude(moveForward * Vector3.forward * forwardMoveSpeed + moveForward * Vector3.right * rightMoveSpeed, currentSpeed) + characterMove.velocity + characterMove.edgeSlipVelocity;
 
 
-        if (characterMove.InputRig.CrouchPressed)
+        if (Input.GetKeyDown(KeyCode.C))
         {
             characterMove.SetState(isSprint ? characterMove.rollState : characterMove.crouchState);
         }
 
-        if (characterMove.InputRig.JumpPressed)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             characterMove.SetState(characterMove.jumpState);
         }

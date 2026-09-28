@@ -1,5 +1,4 @@
-﻿using Fate.Systems.Game;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ViewingResistance : MonoBehaviour
 {
@@ -8,16 +7,6 @@ public class ViewingResistance : MonoBehaviour
     public Transform pivot;
     public float resistanceForce;
     public float resistanceSmoothing;
-
-    [Tooltip("This instance's local input rig - see PlayerInputRig / PlayerCameraRig. Auto-resolved " +
-             "from a parent if left unassigned.")]
-    [SerializeField] private PlayerInputRig inputRig;
-
-    private void Awake()
-    {
-        if (inputRig == null)
-            inputRig = GetComponentInParent<PlayerInputRig>();
-    }
 
     private void OnEnable()
     {
@@ -39,13 +28,14 @@ public class ViewingResistance : MonoBehaviour
 
     private void Update()
     {
-        Vector2 look = inputRig.Look;
+        var vertical = -Input.GetAxis("Mouse Y") * resistanceForce;
+        var horizontal = Input.GetAxis("Mouse X") * resistanceForce;
 
         pivot.localRotation = Quaternion.Lerp(
             pivot.localRotation,
             Quaternion.Euler(
-                -look.y * resistanceForce,
-                look.x * resistanceForce,
+                -Input.GetAxis("Mouse Y") * resistanceForce,
+                Input.GetAxis("Mouse X") * resistanceForce,
                 0),
                 resistanceSmoothing * Time.deltaTime);
     }

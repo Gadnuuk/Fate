@@ -53,7 +53,6 @@
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\EventsSystem\EventModel.cs" />
     <Compile Include="Assets\Polygon Arsenal\Demo\Scripts\PolygonFireProjectile.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\Player\BodyScripts\BodyTurnHandler.cs" />
-    <Compile Include="Assets\Fate\Scripts\Systems\Game\PlayerInputRig.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\EventsSystem\AnimationState.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\v3.2\RIG\LocalRigs\PositionConstrained.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\WeaponScripts\BulletScripts\BulletNetwork.cs" />
@@ -84,13 +83,11 @@
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\EventsSystem\EventsCenter.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\Player\move\CrouchState.cs" />
     <Compile Include="Assets\Polygon Arsenal\Demo\Scripts\PolygonSceneSelect.cs" />
-    <Compile Include="Assets\Fate\Scripts\Systems\Game\InputContext.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\RecoilParametersModel.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\v3.2\RIG\LocalRigs\WeaponSlotRig.cs" />
     <Compile Include="Assets\Polygon Arsenal\Scripts\PolygonSoundSpawn.cs" />
     <Compile Include="Assets\Fate\Scripts\Systems\Boot\Runtime\BootSequenceManager.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\v3.2\Scripts\BodyAimHandler.cs" />
-    <Compile Include="Assets\Fate\Scripts\Systems\Game\Generated\GameInputActions.cs" />
     <Compile Include="Assets\Polygon Arsenal\Scripts\PolygonLightFade.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\v3.2\RIG\IRigExtension.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\v3.2\RIG\RigExtension.cs" />
@@ -98,6 +95,7 @@
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\v3.2\RIG\LocalRigs\TransformToTargetRig.cs" />
     <Compile Include="Assets\FishNet\Upgrading\MirrorUpgrade.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\WeaponScripts\BulletScripts\BulletOffline.cs" />
+    <Compile Include="Assets\Fate\Scripts\Systems\Game\LocalSlotRegistry.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\WeaponScripts\WeaponPickupOffline.cs" />
     <Compile Include="Assets\Polygon Arsenal\Scripts\PolygonBeamStatic.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\Player\move\InAirState.cs" />
@@ -144,7 +142,6 @@
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\WeaponController.cs" />
     <Compile Include="Assets\Polygon Arsenal\Demo\Scripts\PolygonLoopScript.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\WeaponScripts\WeaponSight\WeaponSightEnabler.cs" />
-    <Compile Include="Assets\Fate\Scripts\Systems\Game\LocalInputCoordinator.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\GunChange_SMB.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\v3.2\RIG\RigList.cs" />
     <Compile Include="Assets\Online_FPS_TPS_KIT\Scripts\Player\move\CharacterMove.cs" />

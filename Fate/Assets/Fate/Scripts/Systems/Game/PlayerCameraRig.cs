@@ -6,8 +6,8 @@ using UnityEngine;
 namespace Fate.Systems.Game
 {
     /// <summary>
-    /// Scopes the Online FPS/TPS Kit's camera + input rig to whoever actually controls this
-    /// player instance.
+    /// Scopes the Online FPS/TPS Kit's camera rig to whoever actually controls this player
+    /// instance.
     ///
     /// The kit was authored assuming exactly one player exists in the scene: every instance
     /// carries its own MainCamera-tagged Camera + AudioListener + CinemachineBrain, and its
@@ -18,8 +18,8 @@ namespace Fate.Systems.Game
     ///
     /// Fix:
     /// - Non-owned instances (remote network players) are pure network-driven avatars: their
-    ///   entire camera object (Camera + AudioListener + CinemachineBrain) and their local input
-    ///   scripts are disabled once, at spawn. Zero ongoing per-frame cost.
+    ///   entire camera object (Camera + AudioListener + CinemachineBrain) and their local
+    ///   camera/weapon input scripts are disabled once, at spawn. Zero ongoing per-frame cost.
     /// - Owned instances (this client's local players - up to <see cref="MaxLocalSlots"/> for
     ///   split-screen) are assigned a slot. Each slot has a reserved, Cinemachine-only layer
     ///   (VCamSlot0..VCamSlot3 - see Project Settings > Tags and Layers) that nothing else
@@ -30,18 +30,23 @@ namespace Fate.Systems.Game
     ///   own vcams. Slot 0 also keeps the only enabled AudioListener; slots 1-3 stay muted to
     ///   avoid multiple simultaneous listeners.
     ///
-    /// Slot assignment is a temporary manual/inspector value for now (<see cref="localSlotIndex"/>
-    /// / <see cref="totalLocalPlayers"/>). A later pass wires this up to the local split-screen
-    /// join lobby (device pairing, quadrant picker) and the per-connection multi-object network
-    /// spawn, which will call <see cref="ApplyLocalSlot"/> directly instead of relying on the
-    /// inspector defaults.
+    /// Slot assignment: by default (<see cref="autoAssignLocalSlot"/> = true) every owned instance
+    /// self-registers with <see cref="LocalSlotRegistry"/> in <see cref="OnStartClient"/>, which
+    /// hands out the lowest free slot purely from "how many owned instances exist on this machine
+    /// right now" - drop N player prefab instances into any scene and press Play, no per-instance
+    /// inspector setup or scene scaffolding needed. The <see cref="localSlotIndex"/> /
+    /// <see cref="totalLocalPlayers"/> fields below are only consulted when
+    /// <see cref="autoAssignLocalSlot"/> is turned off for a given instance. The real join lobby
+    /// (Phase 3, Assets/Fate/Docs/SplitScreenNetworkedPlayers.md) will do exactly that - set
+    /// <see cref="autoAssignLocalSlot"/> false and call <see cref="ApplyLocalSlot"/> directly with
+    /// an explicit device/quadrant assignment instead of going through the registry.
     ///
-    /// NOTE: originally this only scoped the camera and camera-input scripts (Input_Handler,
-    /// CameraController, CameraSwitcher) that were causing the reported cross-talk bug, leaving
-    /// weapon and movement scripts untouched. That boundary has since widened deliberately:
-    /// CharacterMove (and its move states) now read from this instance's own PlayerInputRig
-    /// instead of the global Input.* state, so it needs the same owner-only gating and is included
-    /// in <see cref="_ownerOnlyBehaviours"/> below alongside PlayerInputRig itself.
+    /// NOTE: this only scopes the camera and camera-input scripts (Input_Handler,
+    /// CameraController, CameraSwitcher) that were causing the reported cross-talk bug; weapon
+    /// and movement scripts are untouched. A per-slot device-input system (so slot 0's
+    /// keyboard/mouse or gamepad never drives slot 1-3's character) was previously prototyped
+    /// here and has been pulled back out for a rearchitecture pass - see
+    /// Assets/Fate/Docs/SplitScreenNetworkedPlayers.md's Phase 2 notes.
     /// </summary>
     public class PlayerCameraRig : NetworkBehaviour
     {
@@ -52,7 +57,16 @@ namespace Fate.Systems.Game
             "VCamSlot0", "VCamSlot1", "VCamSlot2", "VCamSlot3"
         };
 
-        [Header("Local split-screen slot (temporary - will be driven by the join lobby later)")]
+        [Header("Local split-screen slot")]
+        [Tooltip("When true (the default), this instance claims a slot automatically from " +
+                 nameof(LocalSlotRegistry) + " based on how many owned instances currently exist " +
+                 "on this machine - no per-instance setup needed for ad-hoc local testing. Turn " +
+                 "this off for instances that a future join lobby / spawner will assign explicitly " +
+                 "via ApplyLocalSlot(...).")]
+        [SerializeField]
+        private bool autoAssignLocalSlot = true;
+
+        [Header("Manual override (only used when autoAssignLocalSlot is false)")]
         [SerializeField, Range(0, MaxLocalSlots - 1)]
         private int localSlotIndex;
 
@@ -63,28 +77,19 @@ namespace Fate.Systems.Game
         private AudioListener _audioListener;
         private CinemachineVirtualCamera[] _virtualCameras;
         private Behaviour[] _ownerOnlyBehaviours;
-        private PlayerInputRig _inputRig;
+        private bool _claimedFromRegistry;
 
         private void Awake()
         {
             _playerCamera = GetComponentInChildren<Camera>(true);
             _audioListener = GetComponentInChildren<AudioListener>(true);
             _virtualCameras = GetComponentsInChildren<CinemachineVirtualCamera>(true);
-            _inputRig = GetComponentInChildren<PlayerInputRig>(true);
 
-            // CharacterMove (and therefore every move state) is included here too: those scripts
-            // are being migrated (see Assets/Fate/Docs/SplitScreenNetworkedPlayers.md) to read
-            // from this instance's own PlayerInputRig instead of the global Input.* state, so a
-            // non-owned instance - which never gets an initialized rig - must stop ticking
-            // movement locally the same way it already stops reading camera/weapon input below.
-            // Network state already drives a remote instance's visible position/animation.
             _ownerOnlyBehaviours = new Behaviour[]
             {
                 GetComponentInChildren<Input_Handler>(true),
                 GetComponentInChildren<CameraController>(true),
                 GetComponentInChildren<CameraSwitcher>(true),
-                GetComponentInChildren<CharacterMove>(true),
-                _inputRig,
             }.Where(b => b != null).ToArray();
         }
 
@@ -98,7 +103,26 @@ namespace Fate.Systems.Game
                 return;
             }
 
-            ApplyLocalSlot(localSlotIndex, totalLocalPlayers);
+            if (autoAssignLocalSlot)
+            {
+                _claimedFromRegistry = true;
+                LocalSlotRegistry.Claim(this);
+            }
+            else
+            {
+                ApplyLocalSlot(localSlotIndex, totalLocalPlayers);
+            }
+        }
+
+        public override void OnStopClient()
+        {
+            base.OnStopClient();
+
+            if (_claimedFromRegistry)
+            {
+                LocalSlotRegistry.Release(this);
+                _claimedFromRegistry = false;
+            }
         }
 
         /// <summary>
@@ -161,18 +185,6 @@ namespace Fate.Systems.Game
 
             if (_audioListener != null)
                 _audioListener.enabled = slotIndex == 0;
-
-            if (_inputRig != null)
-            {
-                _inputRig.Initialize(slotIndex);
-
-                var coordinator = FindObjectOfType<LocalInputCoordinator>();
-                if (coordinator != null)
-                    coordinator.Register(_inputRig);
-                else
-                    Debug.LogWarning($"{nameof(PlayerCameraRig)}: no {nameof(LocalInputCoordinator)} found in the " +
-                                      "scene - this slot's Pause action will do nothing.", this);
-            }
         }
 
         private static Rect GetViewportRect(int slotIndex, int playerCount)

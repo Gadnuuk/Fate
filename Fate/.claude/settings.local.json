@@ -19,7 +19,11 @@
       "Bash(ls -la \"/mnt/d/Projects/personal/Fate/Fate/Assets/Fate/\" 2>/dev/null | head -20; echo \"---\"; find \"/mnt/d/Projects/personal/Fate/Fate/Assets/Fate\" -maxdepth 1 -name \"*.meta\" 2>/dev/null | head -5)",
       "Bash(ls /mnt/d/ 2>&1 | head -5; echo \"---\"; ls -la 2>&1 | head -5; pwd)",
       "Bash(powershell -c \"echo test\")",
-      "Bash(grep -n \"CinemachineBrain\\\\|!u!114 &.*$\" \"D:\\\\Projects\\\\personal\\\\Fate\\\\Fate\\\\Assets\\\\Online_FPS_TPS_KIT\\\\Prefabs\\\\Player.prefab\")"
+      "Bash(grep -n \"CinemachineBrain\\\\|!u!114 &.*$\" \"D:\\\\Projects\\\\personal\\\\Fate\\\\Fate\\\\Assets\\\\Online_FPS_TPS_KIT\\\\Prefabs\\\\Player.prefab\")",
+      "Bash(python3 -)",
+      "Bash(git checkout *)",
+      "Bash(git rm *)",
+      "Bash(rm -rf Assets/Fate/Scripts/Systems/Game/Generated Assets/Fate/Scripts/Systems/Game/Generated.meta Assets/Fate/Scripts/Systems/Game/InputContext.cs Assets/Fate/Scripts/Systems/Game/InputContext.cs.meta Assets/Fate/Scripts/Systems/Game/LocalInputCoordinator.cs Assets/Fate/Scripts/Systems/Game/LocalInputCoordinator.cs.meta Assets/Fate/Scripts/Systems/Game/PlayerInputRig.cs Assets/Fate/Scripts/Systems/Game/PlayerInputRig.cs.meta)"
     ]
   }
 }

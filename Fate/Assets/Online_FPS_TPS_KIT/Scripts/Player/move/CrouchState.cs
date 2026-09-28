@@ -10,15 +10,14 @@ public class CrouchState : MoveStateBase
 
     public override void Tick()
     {
-        Vector2 moveInput = characterMove.InputRig.Move;
-        var horizontalInput = moveInput.x;
-        var verticalInput = moveInput.y;
+        var horizontalInput = Input.GetAxis("Horizontal");
+        var verticalInput = Input.GetAxis("Vertical");
 
         Quaternion moveForward = Quaternion.Euler(0, characterMove.directionOrienter.rotation.eulerAngles.y, 0);
 
         characterMove.moveVelocity = Vector3.ClampMagnitude(moveForward * Vector3.forward * verticalInput + moveForward * Vector3.right * horizontalInput, 1) * characterMove.crouchSpeed;
 
-        if (characterMove.InputRig.CrouchPressed)
+        if (Input.GetKeyDown(KeyCode.C))
         {
             if (Physics.SphereCast(characterMove.transform.position, characterMove.characterController.radius, Vector3.up, out RaycastHit hit2, characterMove.normalColliderHeight - characterMove.characterController.radius + characterMove.characterController.skinWidth, characterMove.groundCheckMask))
             {
