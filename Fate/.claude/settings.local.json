@@ -7,7 +7,19 @@
       "Read(//c/Program Files/Unity/Hub/Editor/6000.0.49f1/Editor/**)",
       "Bash(cd \"D:\\\\Projects\\\\personal\\\\Fate\\\\Fate\" && mkdir -p \"Assets/Fate/Scripts/Editor\")",
       "Bash(ls -la \"Assets/FishNet/Demos.meta\")",
-      "Bash(du -sh \"Assets/FishNet/Demos\")"
+      "Bash(du -sh \"Assets/FishNet/Demos\")",
+      "Bash(xargs grep -liE \"camera|cinemachine\")",
+      "Bash(find \"/d/Projects/personal/Fate/Fate/Library/PackageCache\" -maxdepth 1 -iname \"*cinemachine*\" 2>/dev/null; echo \"---\"; find / -maxdepth 6 -iname \"*cinemachine*\" -path \"*PackageCache*\" 2>/dev/null | head)",
+      "Read(//c/Users/local.aaron.hines/**)",
+      "Read(//c/Users/local.aaron.hines/.claude/**)",
+      "Bash(python3 -c \"import uuid; print\\(uuid.uuid4\\(\\).hex\\)\")",
+      "Bash(openssl rand *)",
+      "Read(//dev/**)",
+      "Bash(awk -F: '$1>39300 && $1<39470')",
+      "Bash(ls -la \"/mnt/d/Projects/personal/Fate/Fate/Assets/Fate/\" 2>/dev/null | head -20; echo \"---\"; find \"/mnt/d/Projects/personal/Fate/Fate/Assets/Fate\" -maxdepth 1 -name \"*.meta\" 2>/dev/null | head -5)",
+      "Bash(ls /mnt/d/ 2>&1 | head -5; echo \"---\"; ls -la 2>&1 | head -5; pwd)",
+      "Bash(powershell -c \"echo test\")",
+      "Bash(grep -n \"CinemachineBrain\\\\|!u!114 &.*$\" \"D:\\\\Projects\\\\personal\\\\Fate\\\\Fate\\\\Assets\\\\Online_FPS_TPS_KIT\\\\Prefabs\\\\Player.prefab\")"
     ]
   }
 }

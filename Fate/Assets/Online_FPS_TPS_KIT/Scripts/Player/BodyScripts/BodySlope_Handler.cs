@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Fate.Systems.Game;
 using UnityEngine;
 
 public class BodySlope_Handler : MonoBehaviour
@@ -12,6 +13,17 @@ public class BodySlope_Handler : MonoBehaviour
     [SerializeField] private LayerMask collisionMask;
     public float targetAngle;
     [SerializeField] private float hitDistance;
+
+    [Tooltip("This instance's local input rig - see PlayerInputRig / PlayerCameraRig. Auto-resolved " +
+             "from a parent if left unassigned. Used here only for the duplicate Lean-axis read in " +
+             "CheckBodyCollision - setInput() above still gets its value from Input_Handler.")]
+    [SerializeField] private PlayerInputRig inputRig;
+
+    private void Awake()
+    {
+        if (inputRig == null)
+            inputRig = GetComponentInParent<PlayerInputRig>();
+    }
 
     public void setInput(float InputAngle)
     {
@@ -40,8 +52,9 @@ public class BodySlope_Handler : MonoBehaviour
 
     private void CheckBodyCollision()
     {
-        Debug.DrawLine(playerCameraPosition.position, playerCameraPosition.position + playerCameraPosition.right * (Input.GetAxisRaw("Slope") * 0.51f));
-        if (Physics.Linecast(playerCameraPosition.position, playerCameraPosition.position + playerCameraPosition.right * (Input.GetAxisRaw("Slope") * 0.51f), out RaycastHit raycastHit, collisionMask))
+        float lean = inputRig.Lean;
+        Debug.DrawLine(playerCameraPosition.position, playerCameraPosition.position + playerCameraPosition.right * (lean * 0.51f));
+        if (Physics.Linecast(playerCameraPosition.position, playerCameraPosition.position + playerCameraPosition.right * (lean * 0.51f), out RaycastHit raycastHit, collisionMask))
         {
             hitDistance = Mathf.Lerp(0, 1, Vector3.Distance(playerCameraPosition.position, raycastHit.point) / 0.5f);
             Debug.Log("hitted + " + raycastHit.transform.name);

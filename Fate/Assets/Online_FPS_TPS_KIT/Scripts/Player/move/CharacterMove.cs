@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Fate.Systems.Game;
 using UnityEngine;
 
 public class CharacterMove : MonoBehaviour
@@ -10,6 +11,12 @@ public class CharacterMove : MonoBehaviour
     public BodyTurnHandler bodyTurnHandler;
     public Animator animator;
     public Transform directionOrienter;
+
+    [Tooltip("This instance's local input rig - move states read from this instead of raw Input.* " +
+             "calls so split-screen local players don't fight over the same device state. Only " +
+             "initialized on owned/local instances (see PlayerCameraRig.ApplyLocalSlot).")]
+    [SerializeField] private PlayerInputRig inputRig;
+    public PlayerInputRig InputRig => inputRig;
 
     [Header("Colider values")]
     public float crouchColliderHeight = 1f;
@@ -81,6 +88,11 @@ public class CharacterMove : MonoBehaviour
         colliderSizeChangeCor = ColliderSizeChangeSmooth(false);
         characterController = GetComponent<CharacterController>();
         normalColliderHeight = characterController.height;
+
+        // Auto-resolve if not wired in the inspector, same fallback pattern as characterController
+        // above - PlayerInputRig typically lives at the same prefab root as PlayerCameraRig.
+        if (inputRig == null)
+            inputRig = GetComponentInParent<PlayerInputRig>();
 
 
         standState = new StandState(this);

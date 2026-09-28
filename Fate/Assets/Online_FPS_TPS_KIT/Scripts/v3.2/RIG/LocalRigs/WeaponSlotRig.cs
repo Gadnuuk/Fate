@@ -7,6 +7,11 @@ public class WeaponSlotRig : LocalRig
     [Range(0, 1)] public float weight;
     public Transform inactiveSlot;
 
+    // Deliberately left on legacy Input (not migrated to PlayerInputRig): this is a disabled-by-
+    // default (see controlKeyP below) debug-only toggle, not part of the player-prefab's real
+    // control surface, so it doesn't need its own per-slot action. Safe to leave as-is - this
+    // project's Active Input Handling is set to "Both" (ProjectSettings.asset,
+    // activeInputHandler: 2), so legacy Input.* calls keep working alongside the new Input System.
     public bool controlKeyP = false; // for test
 
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Fate.Systems.Game;
 using UnityEngine;
 
 public class Input_Handler : MonoBehaviour
@@ -16,6 +17,16 @@ public class Input_Handler : MonoBehaviour
     [SerializeField] float maxViewAngle = 80;
     [SerializeField] private float sensitivity = 150;
 
+    [Tooltip("This instance's local input rig - see PlayerInputRig / PlayerCameraRig. Auto-resolved " +
+             "from a parent if left unassigned.")]
+    [SerializeField] private PlayerInputRig inputRig;
+
+    private void Awake()
+    {
+        if (inputRig == null)
+            inputRig = GetComponentInParent<PlayerInputRig>();
+    }
+
     private void Start()
     {
         weaponController.activeID = 1;
@@ -26,53 +37,54 @@ public class Input_Handler : MonoBehaviour
     {
         TryShoot();
 
-        bodySlope_Handler.setInput(-Input.GetAxisRaw("Slope"));
+        bodySlope_Handler.setInput(-inputRig.Lean);
 
         //bodyTiltInSprint.SetMouseXMove(Input.GetAxis("Mouse X"));
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (inputRig.WeaponSlot1Pressed)
             weaponController.ToChange(1);
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (inputRig.WeaponSlot2Pressed)
             weaponController.ToChange(2);
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (inputRig.WeaponSlot3Pressed)
             weaponController.ToChange(3);
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (inputRig.WeaponSlot4Pressed)
             weaponController.ToChange(4);
 
 
-        if (Input.GetKeyDown(KeyCode.F) && weaponPickUp != null)
+        if (inputRig.InteractPressed && weaponPickUp != null)
         {
             weaponPickUp.PickupCheck();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (inputRig.AimViewPressed)
         {
             //cameraSwitcher.AimViewChange();
             weaponSightHandler.AimViewChange();
         }
-        if (Input.GetMouseButtonDown(2))
+        if (inputRig.AimSightPressed)
         {
             //cameraSwitcher.AimViewChange();
             weaponSightHandler.AimSightChange();
         }
 
-        if (Input.GetKeyDown(KeyCode.V))
+        if (inputRig.ViewChangePressed)
         {
             cameraSwitcher.ViewChange();
         }
 
-        cameraController.SetCameraRotation(Input.GetAxis("Mouse Y") * -sensitivity, Input.GetAxis("Mouse X") * sensitivity);
+        Vector2 look = inputRig.Look;
+        cameraController.SetCameraRotation(look.y * -sensitivity, look.x * sensitivity);
     }
 
 
     void TryShoot()
     {
         bool singleshoot = weaponController.GETCurrentWeapon.singleShoot;
-        if (singleshoot && Input.GetMouseButtonDown(0))
+        if (singleshoot && inputRig.AttackPressed)
         {
             weaponController.StartShoot();
         }
-        else if (!singleshoot && Input.GetMouseButton(0))
+        else if (!singleshoot && inputRig.AttackHeld)
         {
             weaponController.StartShoot();
         }
