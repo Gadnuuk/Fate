@@ -17,6 +17,11 @@ namespace Fate.Systems.InputActions
     ///   ordinal-to-face-button mapping below is the commonly documented Windows XInput layout
     ///   (A=0, B=1, X=2, Y=3, LB=4, RB=5, Back=6, Start=7, L3=8, R3=9). Verify against your actual
     ///   target controllers/platforms and adjust <see cref="ButtonOrdinalsByPlatform"/> if needed.
+    ///   D-Pad ordinals (10-13) are an even rougher best-effort guess - on many drivers the D-Pad
+    ///   is actually reported as a POV hat switch rather than discrete joystick buttons, in which
+    ///   case it won't show up on any button ordinal at all and would need to be read as an axis
+    ///   instead. Confirm with your actual hardware (log which <c>KeyCode.JoystickButton</c>, if
+    ///   any, changes while pressing each D-Pad direction) before relying on them.
     /// - Axes: read through "Gamepad {slot} Axis {1..10}" entries pre-declared in
     ///   ProjectSettings/InputManager.asset (type: Joystick Axis, joystick: that specific slot),
     ///   so each device is read independently instead of blending every connected gamepad
@@ -72,6 +77,10 @@ namespace Fate.Systems.InputActions
             [GamepadButton.Start] = 7,
             [GamepadButton.LeftStickClick] = 8,
             [GamepadButton.RightStickClick] = 9,
+            [GamepadButton.DPadUp] = 10,
+            [GamepadButton.DPadDown] = 11,
+            [GamepadButton.DPadLeft] = 12,
+            [GamepadButton.DPadRight] = 13,
         };
 
         private static Dictionary<GamepadAxis, AxisSlot> WindowsAxisSlots() => new()

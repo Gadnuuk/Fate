@@ -19,5 +19,9 @@ namespace Fate.Systems.InputActions
         RightStickClick,
         Select,
         Start,
+        DPadUp,
+        DPadDown,
+        DPadLeft,
+        DPadRight,
     }
 }

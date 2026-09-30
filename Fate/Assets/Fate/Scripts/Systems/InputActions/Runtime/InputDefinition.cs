@@ -26,7 +26,13 @@ namespace Fate.Systems.InputActions
         [Tooltip("Used when Kind is Button.")]
         public GamepadButton GamepadButton = GamepadButton.None;
 
-        [Tooltip("Used when Kind is Axis.")]
+        [Tooltip("Used when Kind is Axis. Combines additively with GamepadPositive/GamepadNegative below if those are also set.")]
         public GamepadAxis GamepadAxis = GamepadAxis.None;
+
+        [Tooltip("Used when Kind is Axis - held button drives the axis toward +1. Lets an axis be built from two digital buttons (e.g. D-Pad Right) instead of/in addition to an analog GamepadAxis.")]
+        public GamepadButton GamepadPositive = GamepadButton.None;
+
+        [Tooltip("Used when Kind is Axis - held button drives the axis toward -1. Lets an axis be built from two digital buttons (e.g. D-Pad Left) instead of/in addition to an analog GamepadAxis.")]
+        public GamepadButton GamepadNegative = GamepadButton.None;
     }
 }
