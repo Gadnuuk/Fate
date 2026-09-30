@@ -26,5 +26,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Fate/Assets/Scenes/Core/main_menu.unity
     guid: 674accacf312dd049a8a1111e013c5ae
+  - enabled: 1
+    path: Assets/Fate/Assets/Scenes/Core/runtime_systems.unity
+    guid: 1dcc48612d590a14d8e2af2708852eca
+  - enabled: 1
+    path: Assets/Fate/Assets/Scenes/Core/fishnet.unity
+    guid: d57c476420be6ae48a6fd39bf05f626c
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

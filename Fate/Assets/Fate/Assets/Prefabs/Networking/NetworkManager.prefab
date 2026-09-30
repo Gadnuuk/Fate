@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6153962663028834177}
   - component: {fileID: 6094087571939375388}
   m_Layer: 0
-  m_Name: FateNetworkManager
+  m_Name: NetworkManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,6 @@ MonoBehaviour:
   _stopSocketsOnThread: 0
   _dontRoute: 0
   _reuseAddress: 0
-  _unreliableMtu: 1023
   _ipv4BindAddress: 
   _enableIpv6: 1
   _ipv6BindAddress: 

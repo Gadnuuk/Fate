@@ -296,7 +296,7 @@ PrefabInstance:
       addedObject: {fileID: -7169788888548028550}
     - targetCorrespondingSourceObject: {fileID: 5217620020292305509, guid: 1711848c311a7e84a8d4e466405d6c0c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8364534258890229766}
+      addedObject: {fileID: 1384830756300162003}
   m_SourcePrefab: {fileID: 100100000, guid: 1711848c311a7e84a8d4e466405d6c0c, type: 3}
 --- !u!1 &1801627574442244227 stripped
 GameObject:
@@ -371,14 +371,14 @@ MonoBehaviour:
   _teleportThreshold: 1
   <PrefabId>k__BackingField: 65535
   <SpawnableCollectionId>k__BackingField: 0
-  <AssetPathHash>k__BackingField: 10218433998352201194
+  <AssetPathHash>k__BackingField: 10549588312386894383
   SceneId: 0
   SerializedTransformProperties:
     Position: {x: 0, y: 0, z: 0}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     Scale: {x: 0, y: 0, z: 0}
     IsValid: 0
---- !u!114 &8364534258890229766
+--- !u!114 &1384830756300162003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -387,9 +387,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1801627574442244227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7e0001000000000000000000000009, type: 3}
+  m_Script: {fileID: 11500000, guid: c36aec313d42ceb45a23ee124a9bbd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGlobal: 0
 --- !u!4 &1801627574442244280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5217620020292305502, guid: 1711848c311a7e84a8d4e466405d6c0c, type: 3}
