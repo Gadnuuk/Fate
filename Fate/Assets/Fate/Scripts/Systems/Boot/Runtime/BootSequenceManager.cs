@@ -23,12 +23,18 @@ namespace Fate.Systems.Boot
                 yield break;
             }
 
-            foreach (var scene in bootSequence.Scenes)
+            BootSequenceEntry previousEntry = null;
+            Scene previousScene = default;
+
+            foreach (var entry in bootSequence.Entries)
             {
-                if (scene == null || !scene.IsAssigned)
+                if (entry == null || entry.Scene == null || !entry.Scene.IsAssigned)
                     continue;
 
-                SceneManager.LoadScene(scene.SceneName, LoadSceneMode.Additive);
+                if (previousEntry != null && previousEntry.UnloadWhenNextSceneStarts)
+                    SceneManager.UnloadSceneAsync(previousScene);
+
+                SceneManager.LoadScene(entry.Scene.SceneName, LoadSceneMode.Additive);
 
                 // LoadScene (sync) calls Awake/OnEnable immediately, but Start is
                 // deferred to the next frame's Start phase. Waiting one frame here
@@ -36,7 +42,11 @@ namespace Fate.Systems.Boot
                 // move on to loading the next one.
                 yield return null;
 
-                yield return WaitForSceneReady(SceneManager.GetSceneByName(scene.SceneName));
+                var scene = SceneManager.GetSceneByName(entry.Scene.SceneName);
+                yield return WaitForSceneReady(scene);
+
+                previousEntry = entry;
+                previousScene = scene;
             }
 
             if (bootSequence.ContentBundle != null)

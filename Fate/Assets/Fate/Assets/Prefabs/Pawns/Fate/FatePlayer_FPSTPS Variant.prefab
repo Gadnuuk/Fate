@@ -263,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 5218052466642650222}
     - target: {fileID: 5217620020292305509, guid: 1711848c311a7e84a8d4e466405d6c0c, type: 3}
       propertyPath: m_Name
-      value: FatePlayer Variant
+      value: FatePlayer_FPSTPS Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5217620021514764179, guid: 1711848c311a7e84a8d4e466405d6c0c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -290,9 +290,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5217620020292305509, guid: 1711848c311a7e84a8d4e466405d6c0c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8152561344298476037}
-    - targetCorrespondingSourceObject: {fileID: 5217620020292305509, guid: 1711848c311a7e84a8d4e466405d6c0c, type: 3}
-      insertIndex: -1
       addedObject: {fileID: -7169788888548028550}
     - targetCorrespondingSourceObject: {fileID: 5217620020292305509, guid: 1711848c311a7e84a8d4e466405d6c0c, type: 3}
       insertIndex: -1
@@ -303,24 +300,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5217620020292305509, guid: 1711848c311a7e84a8d4e466405d6c0c, type: 3}
   m_PrefabInstance: {fileID: 5865973116556081894}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8152561344298476037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801627574442244227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e4ccbed9527c0d2c01a57bc5d665de0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 255
-  _addedNetworkObject: {fileID: -7169788888548028550}
-  _networkObjectCache: {fileID: 0}
-  autoAssignLocalSlot: 1
-  localSlotIndex: 0
-  totalLocalPlayers: 2
 --- !u!114 &-7169788888548028550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,7 +350,7 @@ MonoBehaviour:
   _teleportThreshold: 1
   <PrefabId>k__BackingField: 65535
   <SpawnableCollectionId>k__BackingField: 0
-  <AssetPathHash>k__BackingField: 10549588312386894383
+  <AssetPathHash>k__BackingField: 1421809115473818233
   SceneId: 0
   SerializedTransformProperties:
     Position: {x: 0, y: 0, z: 0}

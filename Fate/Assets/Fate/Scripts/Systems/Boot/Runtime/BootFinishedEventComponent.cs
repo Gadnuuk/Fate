@@ -18,7 +18,6 @@ namespace Fate.Systems.Boot
         {
             HasFinished = true;
             Finished?.Invoke();
-            Debug.Log("Finihs");
         }
     }
 }

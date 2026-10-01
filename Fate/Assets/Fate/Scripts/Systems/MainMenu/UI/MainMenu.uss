@@ -1,0 +1,131 @@
+.screen-root {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Every label in this document sits on a dark translucent panel - keep it light so it
+   contrasts against both the panel and whatever bright scene shows through behind it. */
+.screen-root Label {
+    color: rgb(235, 235, 235);
+}
+
+/* ---------- Init screen ---------- */
+
+.init-screen {
+    align-items: center;
+    justify-content: center;
+}
+
+.join-button {
+    font-size: 24px;
+    padding: 16px 32px;
+}
+
+/* ---------- Main menu screen ---------- */
+
+.main-menu-screen {
+    flex-direction: row;
+}
+
+.left-column {
+    width: 260px;
+    height: 100%;
+    padding: 24px 12px;
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.left-column__header {
+    font-size: 18px;
+    -unity-font-style: bold;
+    margin-bottom: 12px;
+}
+
+.left-column__spacer {
+    flex-grow: 1;
+}
+
+.menu-button {
+    margin: 4px 0;
+    padding: 8px;
+}
+
+.right-area {
+    flex-grow: 1;
+    height: 100%;
+    flex-direction: column;
+}
+
+.profile-row {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.profile-panel {
+    min-width: 200px;
+    margin: 12px;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.profile-panel__header {
+    -unity-font-style: bold;
+    margin-bottom: 4px;
+}
+
+.profile-list {
+    margin-bottom: 8px;
+}
+
+.profile-entry {
+    padding: 2px 4px;
+}
+
+.scene-viewport {
+    flex-grow: 1;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Login screen ---------- */
+
+.login-screen {
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.login-panel {
+    width: 360px;
+    padding: 20px;
+    background-color: rgb(30, 30, 30);
+}
+
+.login-panel__header {
+    font-size: 18px;
+    -unity-font-style: bold;
+    margin-bottom: 8px;
+}
+
+.profile-select-list {
+    margin-bottom: 8px;
+}
+
+.login-panel__divider {
+    height: 1px;
+    margin: 8px 0;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.login-cancel-button {
+    margin-top: 8px;
+}

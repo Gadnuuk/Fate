@@ -4,11 +4,11 @@ using FishNet.Connection;
 using FishNet.Transporting;
 using UnityEngine;
 
-namespace Fate.Systems.Identity
+namespace Fate.Systems.Lobby
 {
     /// <summary>
     /// Server-side. Stashes each connection's declared local players (sent via
-    /// <see cref="PlayerIdentityBroadcast"/>, see <see cref="Fate.Systems.Lobby.LobbySession"/>)
+    /// <see cref="PlayerIdentityBroadcast"/>, see <see cref="LobbySession"/>)
     /// on that connection's own <see cref="NetworkConnection.CustomData"/> as a
     /// <see cref="ConnectionRoster"/>.
     ///
@@ -18,7 +18,7 @@ namespace Fate.Systems.Identity
     /// given connection should get and with which identities. See
     /// Assets/Fate/Docs/SplitScreenNetworkedPlayers.md, Phase 4.
     ///
-    /// Lives alongside <see cref="Fate.Systems.Lobby.LobbySession"/> in the Lobby content scene.
+    /// Lives alongside <see cref="LobbySession"/> in the Lobby content scene.
     /// </summary>
     public class PartyRosterService : MonoBehaviour
     {

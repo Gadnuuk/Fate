@@ -1,5 +1,5 @@
 using System.Linq;
-using Fate.Systems.Identity;
+using Fate.Systems.Player;
 using Fate.Systems.Utilities;
 using FishNet;
 using FishNet.Managing.Scened;
@@ -16,13 +16,6 @@ namespace Fate.Systems.Lobby
     {
         [Tooltip("Scene to load for every connection once the lobby starts the game.")]
         [SerializeField] private SceneReference gameplayScene;
-
-        private PlayerProfileStore _profileStore;
-
-        private void Awake()
-        {
-            _profileStore = new PlayerProfileStore();
-        }
 
         public void StartHost()
         {
@@ -47,22 +40,22 @@ namespace Fate.Systems.Lobby
         }
 
         /// <summary>
-        /// Announces every locally-selected profile on this machine to the server as this
-        /// connection's "online presence" (see <see cref="PlayerIdentityBroadcast"/> /
-        /// <see cref="PartyRosterService"/>). Today that's just whatever profiles exist in the
-        /// local save file - the (architecture-only) join lobby is what will eventually let a
-        /// player pick which saved profile(s) to bring instead of sending all of them.
+        /// Announces every profile <see cref="ProfileManager"/> has logged in on this machine
+        /// (see the main menu's login flow) to the server as this connection's "online presence"
+        /// (see <see cref="PlayerIdentityBroadcast"/> / <see cref="PartyRosterService"/>). The
+        /// (architecture-only) join lobby is what will eventually let a player pick which
+        /// logged-in profile(s) to bring instead of sending all of them.
         /// </summary>
         private void SendLocalIdentity()
         {
-            var localPlayers = _profileStore.LoadAll()
-                .Select(p => new LocalPlayerEntry { PlayerId = p.Id, DisplayName = p.DisplayName })
+            var localPlayers = ProfileManager.Instance.LoggedInProfiles
+                .Select(p => new LocalPlayerEntry { PlayerId = p.PlayerId.Uuid, DisplayName = p.PlayerId.Tag })
                 .ToArray();
 
             if (localPlayers.Length == 0)
             {
-                Debug.LogWarning($"{nameof(LobbySession)}: no saved player profiles to announce - " +
-                                  "create one via PlayerProfileStore before connecting.", this);
+                Debug.LogWarning($"{nameof(LobbySession)}: no logged-in player profiles to announce - " +
+                                  "log in via the main menu before connecting.", this);
                 return;
             }
 

@@ -181,15 +181,15 @@ Design:
   screen (no relation to `LobbySession`'s host/join network lobby) that runs
   before `LobbySession.StartGame()` on whichever machine has multiple local
   players; a single-local-player machine can skip straight past it.
-- Identity integration (see `Assets/Fate/Scripts/Systems/Identity/Runtime/`,
+- Identity integration (see `Assets/Fate/Scripts/Systems/Player/Runtime/`,
   built this pass): each quadrant, once a device lands in it, should let that
-  local slot pick from the machine's saved `PlayerProfileStore.LoadAll()`
+  local slot pick from the machine's saved `ProfileManager.LoadProfiles()`
   list (console-style "who's playing" picker) rather than defaulting to
-  "every saved profile joins" the way `LobbySession.SendLocalIdentity` does
-  today. The resulting per-slot `(deviceId, PlayerId)` pairing is what
-  eventually replaces `LobbySession`'s current "announce every local profile"
-  behavior with "announce only the profiles actually assigned to a quadrant
-  this session".
+  "every logged-in profile joins" the way `LobbySession.SendLocalIdentity`
+  does today. The resulting per-slot `(deviceId, PlayerId)` pairing is what
+  eventually replaces `LobbySession`'s current "announce every logged-in
+  profile" behavior with "announce only the profiles actually assigned to a
+  quadrant this session".
 
 ## Phase 4 - Multi-object-per-connection network spawn
 
@@ -221,7 +221,7 @@ Design:
   over Cinemachine priority - so Phase 2 should land no later than Phase 4.
   Phase 2 is currently pulled back for a rearchitecture pass (see above), so
   this constraint is **not yet satisfied** - revisit before starting Phase 4.
-- Identity integration (see `Assets/Fate/Scripts/Systems/Identity/Runtime/`,
+- Identity integration (see `Assets/Fate/Scripts/Systems/Lobby/Runtime/`,
   built this pass): `PartyRosterService.TryGetRoster(connection, out roster)`
   is exactly the per-connection input this spawner needs - `roster.LocalPlayers`
   (each a `PlayerId` + `DisplayName`, already stashed on
@@ -229,18 +229,28 @@ Design:
   `PlayerIdentityBroadcast` arrived) tells the server how many instances to
   spawn for that connection and which saved identity to associate with each
   one, once Phase 3 exists to produce a roster with one entry per assigned
-  quadrant instead of today's "every saved local profile" broadcast.
+  quadrant instead of today's "every logged-in local profile" broadcast.
 
 ## Identity & party scope note
 
-`PlayerId`/`PlayerProfile`/`PlayerProfileStore` (local-only, GUID-backed,
-console-style multi-profile picker) and the `PlayerIdentityBroadcast` ->
-`PartyRosterService` pipeline are built and working today, independent of
-Phases 3-4 above. What's intentionally **not** built, and stays out of scope
-until a real backend is chosen: any matchmaking or party system beyond
+`PlayerId`/`PlayerProfile`/`ProfileManager` (`Assets/Fate/Scripts/Systems/Player/Runtime/`
+- local-only, PlayerPrefs-backed, console-style multi-profile picker with
+session login tracking) and the `PlayerIdentityBroadcast` -> `PartyRosterService`
+pipeline (`Assets/Fate/Scripts/Systems/Lobby/Runtime/`) are built and working
+today, independent of Phases 3-4 above. `ProfileManager` is a persistent
+singleton (same pattern as `Fate.Systems.Content.ContentSceneManager`) so the
+main menu's login state survives the scene load into the Lobby content scene,
+where `LobbySession.SendLocalIdentity` reads `ProfileManager.Instance.LoggedInProfiles`
+to build the broadcast. What's intentionally **not** built, and stays out of
+scope until a real backend is chosen: any matchmaking or party system beyond
 today's direct-connect `LobbySession.StartHost()` / `JoinHost(address)` model
 - no server browser, no invite links, no friends list, no relay/NAT
 traversal. "Join a friend's party" remains "get their IP/address out of band
 and enter it". The identity layer was deliberately kept provider-agnostic
 (raw string IDs on the wire, no auth handshake) so a real backend can slot in
 underneath it later without changing `PlayerId`/`PlayerProfile` shapes.
+
+(An earlier, separate `Fate.Systems.Identity` namespace duplicated this same
+concept with a JSON-file-backed store and no session login tracking. It had
+no consumers besides its own now-deleted `LobbySession` usage and has been
+removed in favor of the `Player`/`ProfileManager` system described above.)

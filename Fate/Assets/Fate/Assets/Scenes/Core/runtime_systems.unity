@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &648403910
+--- !u!1 &161704406
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,58 +127,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 648403912}
-  - component: {fileID: 648403911}
-  - component: {fileID: 648403913}
+  - component: {fileID: 161704408}
+  - component: {fileID: 161704407}
   m_Layer: 0
-  m_Name: PawnBase
+  m_Name: ContentSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &648403911
+--- !u!114 &161704407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648403910}
+  m_GameObject: {fileID: 161704406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c36aec313d42ceb45a23ee124a9bbd54, type: 3}
+  m_Script: {fileID: 11500000, guid: b60034f3611efb1469a88dee1448ff3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGlobal: 0
---- !u!4 &648403912
+--- !u!4 &161704408
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648403910}
+  m_GameObject: {fileID: 161704406}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.605132, y: 1.3619231, z: 3.4775548}
+  m_LocalPosition: {x: -1.8926566, y: 1.2471389, z: 3.524794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &648403913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648403910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50890740474a595458bd6266127a0961, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpAction: {fileID: 11400000, guid: 6b693a180b4ef6447b555c573000ffe2, type: 2}
-  moveHorizontalAction: {fileID: 11400000, guid: adb472d8bc6cdbf4e8f42860daeb41ce, type: 2}
 --- !u!1001 &2589691223175557618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -361,4 +345,4 @@ SceneRoots:
   - {fileID: 4461620272530081721}
   - {fileID: 2589691223175557618}
   - {fileID: 4937384077679259826}
-  - {fileID: 648403912}
+  - {fileID: 161704408}

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Fate.Systems.Utilities;
 using UnityEngine;
 
 namespace Fate.Systems.Player
@@ -17,8 +18,14 @@ namespace Fate.Systems.Player
     /// More than one profile can be logged in at once (local split-screen), but exactly one is
     /// ever the primary - the profile that acts as host. Mapping input devices to logged-in
     /// profiles happens elsewhere and comes later.
+    ///
+    /// Persistent singleton (see <see cref="PersistentSingleton{T}"/>) so whichever scene logs a
+    /// profile in first (today: the main menu) and whichever scene later needs that login state
+    /// (today: <see cref="Fate.Systems.Lobby.LobbySession"/>) see the same instance across a scene
+    /// load. Preferred setup is a boot-sequence scene placing the one instance up front; callers
+    /// should never spawn this themselves - just read <see cref="PersistentSingleton{T}.Instance"/>.
     /// </summary>
-    public class ProfileManager : MonoBehaviour
+    public class ProfileManager : PersistentSingleton<ProfileManager>
     {
         private const string ProfileKeyPrefix = "PlayerProfile.";
         private const string IndexKey = "PlayerProfile.Index";

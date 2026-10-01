@@ -30,8 +30,6 @@ namespace Fate.Systems.Utilities
             {
                 StopTimer();
                 onTimerDone?.Invoke();
-
-                Debug.Log("timer Done");
             }
         }
 
@@ -46,7 +44,6 @@ namespace Fate.Systems.Utilities
             elapsedTime = 0f;
             IsRunning = true;
             IsPaused = false;
-                Debug.Log("timer start");
 
         }
 

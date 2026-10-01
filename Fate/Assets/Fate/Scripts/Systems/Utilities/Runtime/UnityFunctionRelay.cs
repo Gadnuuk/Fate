@@ -28,7 +28,6 @@ namespace Fate.Systems.Utilities
             if (relayStart)
             {
                 onStart?.Invoke();
-                Debug.Log("Start");
             }
         }
 

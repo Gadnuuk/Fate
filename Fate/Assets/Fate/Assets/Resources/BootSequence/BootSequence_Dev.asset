@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffac00d6adc0086449cbb7cdbe31ca0d, type: 3}
   m_Name: BootSequence_Dev
   m_EditorClassIdentifier: Assembly-CSharp::Fate.Systems.Boot.BootSequence
-  scenes:
-  - sceneAsset: {fileID: 102900000, guid: 63a703b8460e12841b0591bd2c35fbe3, type: 3}
-    sceneName: splash
-    scenePath: Assets/Fate/Assets/Scenes/Core/splash.unity
-  - sceneAsset: {fileID: 102900000, guid: d57c476420be6ae48a6fd39bf05f626c, type: 3}
-    sceneName: fishnet
-    scenePath: Assets/Fate/Assets/Scenes/Core/fishnet.unity
-  - sceneAsset: {fileID: 102900000, guid: 1dcc48612d590a14d8e2af2708852eca, type: 3}
-    sceneName: runtime_systems
-    scenePath: Assets/Fate/Assets/Scenes/Core/runtime_systems.unity
+  entries:
+  - scene:
+      sceneAsset: {fileID: 102900000, guid: 63a703b8460e12841b0591bd2c35fbe3, type: 3}
+      sceneName: splash
+      scenePath: Assets/Fate/Assets/Scenes/Core/splash.unity
+    unloadWhenNextSceneStarts: 1
+  - scene:
+      sceneAsset: {fileID: 102900000, guid: d57c476420be6ae48a6fd39bf05f626c, type: 3}
+      sceneName: fishnet
+      scenePath: Assets/Fate/Assets/Scenes/Core/fishnet.unity
+    unloadWhenNextSceneStarts: 0
+  - scene:
+      sceneAsset: {fileID: 102900000, guid: 1dcc48612d590a14d8e2af2708852eca, type: 3}
+      sceneName: runtime_systems
+      scenePath: Assets/Fate/Assets/Scenes/Core/runtime_systems.unity
+    unloadWhenNextSceneStarts: 0
   contentBundle: {fileID: 11400000, guid: 735b46d7ffda471e8a76cc63e9ab9fb5, type: 2}

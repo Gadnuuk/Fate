@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1801627574442244227, guid: 960b53cb5b2e7b045a8513eca10d9d32, type: 3}
       propertyPath: m_Name
-      value: FatePlayerNetworked Variant
+      value: FatePlayer_FPSTPS_Networked Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1801627574442244280, guid: 960b53cb5b2e7b045a8513eca10d9d32, type: 3}
       propertyPath: m_LocalPosition.x
@@ -131,7 +131,7 @@ MonoBehaviour:
   _teleportThreshold: 1
   <PrefabId>k__BackingField: 65535
   <SpawnableCollectionId>k__BackingField: 0
-  <AssetPathHash>k__BackingField: 16145335203919807315
+  <AssetPathHash>k__BackingField: 9702494234774611253
   SceneId: 0
   SerializedTransformProperties:
     Position: {x: 0, y: 0, z: 0}
