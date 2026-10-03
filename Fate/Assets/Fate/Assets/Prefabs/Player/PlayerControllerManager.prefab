@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4628061094125534686}
+  - component: {fileID: -4679549573708776579}
   m_Layer: 0
   m_Name: PlayerControllerManager
   m_TagString: Untagged
@@ -31,3 +32,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4679549573708776579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912964293861184633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e568db5e9117d48438d638d1b20d76ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerControllerPrefab: {fileID: 452405235029752965, guid: 6b3efb0fcb0cc7c4aa703d1d584311ca, type: 3}
+  globalControllerContext: {fileID: 11400000, guid: c743b6ace5f8b22429cd3c3b17dbd8bc, type: 2}

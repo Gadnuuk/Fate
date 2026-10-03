@@ -21,6 +21,7 @@
                 <engine:Button name="mode-sandbox-button" text="Sandbox" class="menu-button" />
                 <engine:Button name="mode-joinparty-button" text="Join Party" class="menu-button" />
                 <engine:VisualElement class="left-column__spacer" />
+                <engine:Button name="configure-controllers-button" text="Configure Controllers" class="menu-button" />
                 <engine:Button name="options-button" text="Options" class="menu-button" />
                 <engine:Button name="credits-button" text="Credits" class="menu-button" />
             </engine:VisualElement>

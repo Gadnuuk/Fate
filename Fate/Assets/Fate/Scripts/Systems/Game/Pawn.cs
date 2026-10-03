@@ -22,6 +22,18 @@ namespace Fate.Systems.Game
             _possessionHandlers = GetComponents<IPossessionHandler>();
         }
 
+        private void OnEnable()
+        {
+            if (isGlobal)
+                PlayerControllerManager.Instance.GlobalController.PossessGlobalPawn(this);
+        }
+
+        private void OnDisable()
+        {
+            if (isGlobal)
+                PlayerControllerManager.Instance.GlobalController.UnpossessGlobalPawn(this);
+        }
+
         /// <summary>
         /// Called by a <see cref="PlayerController"/> taking possession. Notifies every sibling
         /// <see cref="IPossessionHandler"/> so components can bind to their input actions without

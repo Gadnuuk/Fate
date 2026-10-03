@@ -15,5 +15,15 @@ namespace Fate.Systems.InputActions
         RightStickY,
         LeftTrigger,
         RightTrigger,
+
+        /// <summary>
+        /// D-Pad horizontal. On this project's confirmed hardware the D-Pad is a POV hat reported
+        /// as a genuine analog axis (not discrete joystick buttons) - see <see cref="GamepadButton.DPadLeft"/>/
+        /// <see cref="GamepadButton.DPadRight"/>, which resolve through this axis instead of a KeyCode.
+        /// </summary>
+        DPadX,
+
+        /// <summary>D-Pad vertical - see <see cref="DPadX"/>.</summary>
+        DPadY,
     }
 }

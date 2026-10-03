@@ -21,3 +21,25 @@ MonoBehaviour:
       KeyboardNegative: 0
       GamepadButton: 1
       GamepadAxis: 0
+      GamepadPositive: 0
+      GamepadNegative: 0
+  - Action: {fileID: 11400000, guid: 87a3c6fc036d39e48a2e4823d7834332, type: 2}
+    Definition:
+      Kind: 0
+      KeyboardKey: 13
+      KeyboardPositive: 0
+      KeyboardNegative: 0
+      GamepadButton: 1
+      GamepadAxis: 0
+      GamepadPositive: 0
+      GamepadNegative: 0
+  - Action: {fileID: 11400000, guid: adb472d8bc6cdbf4e8f42860daeb41ce, type: 2}
+    Definition:
+      Kind: 1
+      KeyboardKey: 13
+      KeyboardPositive: 100
+      KeyboardNegative: 115
+      GamepadButton: 1
+      GamepadAxis: 1
+      GamepadPositive: 14
+      GamepadNegative: 13

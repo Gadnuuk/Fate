@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9cc8f430eac4e4ab3083d21a7b3209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fate.Systems.Utilities.Timer
-  duration: 5
+  duration: 1
   useUnscaledTime: 0
   onTimerDone:
     m_PersistentCalls:

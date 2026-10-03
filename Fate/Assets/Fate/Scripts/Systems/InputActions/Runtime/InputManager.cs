@@ -115,13 +115,7 @@ namespace Fate.Systems.InputActions
             definition.KeyboardKey != KeyCode.None && Input.GetKey(definition.KeyboardKey);
 
         private static bool ReadGamepadButton(InputDefinition definition, int gamepadIndex) =>
-            IsGamepadButtonHeld(definition.GamepadButton, gamepadIndex);
-
-        private static bool IsGamepadButtonHeld(GamepadButton button, int gamepadIndex)
-        {
-            KeyCode keyCode = GamepadInputMap.GetButtonKeyCode(button, gamepadIndex);
-            return keyCode != KeyCode.None && Input.GetKey(keyCode);
-        }
+            GamepadInputMap.IsButtonHeld(definition.GamepadButton, gamepadIndex);
 
         private static float ReadKeyboardAxis(InputDefinition definition)
         {
@@ -145,9 +139,9 @@ namespace Fate.Systems.InputActions
                 value += invert ? -raw : raw;
             }
 
-            if (IsGamepadButtonHeld(definition.GamepadPositive, gamepadIndex))
+            if (GamepadInputMap.IsButtonHeld(definition.GamepadPositive, gamepadIndex))
                 value += 1f;
-            if (IsGamepadButtonHeld(definition.GamepadNegative, gamepadIndex))
+            if (GamepadInputMap.IsButtonHeld(definition.GamepadNegative, gamepadIndex))
                 value -= 1f;
 
             return Mathf.Clamp(value, -1f, 1f);

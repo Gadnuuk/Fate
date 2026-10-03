@@ -28,6 +28,17 @@
 .join-button {
     font-size: 24px;
     padding: 16px 32px;
+    border-width: 2px;
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.join-button:focus {
+    border-color: rgb(255, 196, 0);
+    background-color: rgba(255, 196, 0, 0.18);
+}
+
+.join-button:hover {
+    border-color: rgba(255, 196, 0, 0.6);
 }
 
 /* ---------- Main menu screen ---------- */
@@ -56,6 +67,20 @@
 .menu-button {
     margin: 4px 0;
     padding: 8px;
+    border-width: 2px;
+    border-color: rgba(0, 0, 0, 0);
+}
+
+/* Border width stays constant at all times (above) so focusing/unfocusing never shifts layout -
+   only the color changes. :focus is keyboard/gamepad navigation (what was hard to see); :hover
+   covers the mouse case for free since it's the same visual treatment. */
+.menu-button:focus {
+    border-color: rgb(255, 196, 0);
+    background-color: rgba(255, 196, 0, 0.18);
+}
+
+.menu-button:hover {
+    border-color: rgba(255, 196, 0, 0.6);
 }
 
 .right-area {
@@ -87,7 +112,18 @@
 }
 
 .profile-entry {
+    flex-direction: row;
+    justify-content: space-between;
     padding: 2px 4px;
+}
+
+.profile-entry__name {
+    flex-grow: 1;
+}
+
+.profile-entry__device {
+    color: rgb(150, 150, 150);
+    margin-left: 8px;
 }
 
 .scene-viewport {

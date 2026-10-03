@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../../../UIElementsSchema/UnityEngine.UIElements.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+    <engine:Style src="PlayerControllerConfig.uss" />
+
+    <engine:VisualElement name="screen-root" class="screen-root">
+
+        <engine:Label text="Configure Controllers" class="config-header" />
+        <engine:Label text="Move toward a player to claim that column. Move past either end to release. Press Confirm (any device) to finish." class="config-hint" />
+
+        <engine:VisualElement name="player-columns" class="player-columns" />
+
+        <engine:VisualElement name="pool-panel" class="pool-panel">
+            <engine:Label text="Devices" class="pool-panel__header" />
+            <engine:VisualElement name="device-pool" class="device-pool" />
+        </engine:VisualElement>
+
+        <engine:Button name="confirm-button" text="Confirm Configuration" class="menu-button confirm-button" />
+
+    </engine:VisualElement>
+</engine:UXML>
