@@ -18,7 +18,7 @@ namespace Fate.Systems.MainMenu
     public class MainMenuFlowController : MonoBehaviour
     {
         // ProfileManager is a persistent singleton (see PersistentSingleton<T>) placed by the boot
-        // sequence - it must outlive this menu's scene so Fate.Systems.Lobby.LobbySession can read
+        // sequence - it must outlive this menu's scene so Fate.Systems.Lobby.SessionManager can read
         // the same logged-in profiles later. This controller only ever reads Instance; it never
         // spawns one itself.
         private ProfileManager _profileManager;

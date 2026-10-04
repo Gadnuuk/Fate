@@ -21,7 +21,7 @@ namespace Fate.Systems.Player
     ///
     /// Persistent singleton (see <see cref="PersistentSingleton{T}"/>) so whichever scene logs a
     /// profile in first (today: the main menu) and whichever scene later needs that login state
-    /// (today: <see cref="Fate.Systems.Lobby.LobbySession"/>) see the same instance across a scene
+    /// (today: <see cref="Fate.Systems.Lobby.SessionManager"/>) see the same instance across a scene
     /// load. Preferred setup is a boot-sequence scene placing the one instance up front; callers
     /// should never spawn this themselves - just read <see cref="PersistentSingleton{T}.Instance"/>.
     /// </summary>

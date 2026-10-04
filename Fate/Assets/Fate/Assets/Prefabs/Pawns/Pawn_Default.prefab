@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 4821001000000002}
   - component: {fileID: 4821001000000004}
   - component: {fileID: 4821001000000005}
-  - component: {fileID: 5572709468196756336}
   - component: {fileID: 1787200456205081144}
   - component: {fileID: 991751576996620611}
   - component: {fileID: 3261521679401315078}
+  - component: {fileID: 2052688971328032476}
   m_Layer: 0
-  m_Name: FatePawn_Default
+  m_Name: Pawn_Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
-  - {fileID: 5572709468196756336}
+  - {fileID: 0}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   _teleportThreshold: 1
   <PrefabId>k__BackingField: 10
   <SpawnableCollectionId>k__BackingField: 0
-  <AssetPathHash>k__BackingField: 14695297542491335009
+  <AssetPathHash>k__BackingField: 6882475745491534233
   SceneId: 0
   SerializedTransformProperties:
     Position: {x: 0, y: 0, z: 0}
@@ -110,21 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGlobal: 0
---- !u!114 &5572709468196756336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4821001000000001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a6a39c46bf52104ba8efe3100bce3f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 0
-  _addedNetworkObject: {fileID: 4821001000000004}
-  _networkObjectCache: {fileID: 4821001000000004}
 --- !u!114 &1787200456205081144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +171,21 @@ MonoBehaviour:
   lookSpeed: 120
   minPitch: -89
   maxPitch: 89
+--- !u!114 &2052688971328032476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821001000000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa4e7503f0c4fada3a099dee4f6a9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 4821001000000004}
+  _networkObjectCache: {fileID: 0}
 --- !u!1 &4821001000000010
 GameObject:
   m_ObjectHideFlags: 0

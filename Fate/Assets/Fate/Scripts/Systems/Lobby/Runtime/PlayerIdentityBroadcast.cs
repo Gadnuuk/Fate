@@ -16,10 +16,10 @@ namespace Fate.Systems.Lobby
 
     /// <summary>
     /// Sent client -> server right after a connection is established (see
-    /// <see cref="LobbySession"/>), one entry per local player profile that client machine's
+    /// <see cref="SessionManager"/>), one entry per local player profile that client machine's
     /// <see cref="Fate.Systems.Player.ProfileManager"/> has logged in and intends to bring into
-    /// the party/lobby. Received by <see cref="PartyRosterService"/> and stashed on the
-    /// connection for later use by the (not-yet-built) multi-object-per-connection spawner.
+    /// the party/lobby. Received by <see cref="PartyRosterService"/> and kept per-connection for
+    /// later use by <see cref="Fate.Systems.Game.GameModeBase"/>, which spawns one pawn per entry.
     /// </summary>
     public struct PlayerIdentityBroadcast : IBroadcast
     {

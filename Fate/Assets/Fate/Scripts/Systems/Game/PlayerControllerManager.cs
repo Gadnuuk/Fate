@@ -39,6 +39,7 @@ namespace Fate.Systems.Game
 
         private PlayerController _globalController;
         private readonly List<PlayerController> _activeControllers = new();
+        private readonly Dictionary<PlayerId, PlayerController> _controllersByPlayerId = new();
         private readonly Dictionary<PlayerController, Camera> _splitScreenCameras = new();
         private bool _isSplitScreenEnabled;
 
@@ -65,8 +66,17 @@ namespace Fate.Systems.Game
         {
             PlayerController controller = SpawnControllerInternal(playerId, device);
             _activeControllers.Add(controller);
+            _controllersByPlayerId[playerId] = controller;
             return controller;
         }
+
+        /// <summary>
+        /// Looks up the currently active per-player controller owned by <paramref name="playerId"/>, if any.
+        /// Used by networked pawn spawn-bridging code (e.g. a pawn's owning client resolving which local
+        /// controller should possess it) to stay decoupled from how/when that controller was created.
+        /// </summary>
+        public bool TryGetController(PlayerId playerId, out PlayerController controller) =>
+            _controllersByPlayerId.TryGetValue(playerId, out controller);
 
         /// <summary>
         /// Despawns every current per-player controller and spawns a fresh one per assignment.
@@ -92,6 +102,7 @@ namespace Fate.Systems.Game
             }
 
             _activeControllers.Clear();
+            _controllersByPlayerId.Clear();
         }
 
         private PlayerController SpawnControllerInternal(PlayerId? ownerPlayerId, InputDevice? targetDevice)
