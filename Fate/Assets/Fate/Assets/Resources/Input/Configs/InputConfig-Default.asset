@@ -19,6 +19,8 @@ MonoBehaviour:
       KeyboardKey: 32
       KeyboardPositive: 0
       KeyboardNegative: 0
+      MouseAxis: 0
+      MouseSensitivity: 1
       GamepadButton: 1
       GamepadAxis: 0
       GamepadPositive: 0
@@ -29,6 +31,8 @@ MonoBehaviour:
       KeyboardKey: 13
       KeyboardPositive: 0
       KeyboardNegative: 0
+      MouseAxis: 0
+      MouseSensitivity: 1
       GamepadButton: 1
       GamepadAxis: 0
       GamepadPositive: 0
@@ -36,10 +40,48 @@ MonoBehaviour:
   - Action: {fileID: 11400000, guid: adb472d8bc6cdbf4e8f42860daeb41ce, type: 2}
     Definition:
       Kind: 1
-      KeyboardKey: 13
+      KeyboardKey: 0
       KeyboardPositive: 100
-      KeyboardNegative: 115
+      KeyboardNegative: 97
+      MouseAxis: 0
+      MouseSensitivity: 1
       GamepadButton: 1
       GamepadAxis: 1
       GamepadPositive: 14
       GamepadNegative: 13
+  - Action: {fileID: 11400000, guid: 37ea5a1c072b26342827b05628d12a73, type: 2}
+    Definition:
+      Kind: 1
+      KeyboardKey: 0
+      KeyboardPositive: 119
+      KeyboardNegative: 115
+      MouseAxis: 0
+      MouseSensitivity: 1
+      GamepadButton: 0
+      GamepadAxis: 2
+      GamepadPositive: 11
+      GamepadNegative: 12
+  - Action: {fileID: 11400000, guid: 91caed61f3c29474eaf2eaba31e23cb2, type: 2}
+    Definition:
+      Kind: 1
+      KeyboardKey: 0
+      KeyboardPositive: 275
+      KeyboardNegative: 276
+      MouseAxis: 1
+      MouseSensitivity: 1
+      GamepadButton: 0
+      GamepadAxis: 3
+      GamepadPositive: 0
+      GamepadNegative: 0
+  - Action: {fileID: 11400000, guid: f434ff3d9a892bc43a29546eb1c2e393, type: 2}
+    Definition:
+      Kind: 1
+      KeyboardKey: 0
+      KeyboardPositive: 273
+      KeyboardNegative: 274
+      MouseAxis: 2
+      MouseSensitivity: 1
+      GamepadButton: 0
+      GamepadAxis: 2
+      GamepadPositive: 0
+      GamepadNegative: 0

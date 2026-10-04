@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca86ed5c9f75ac14fbf8c56b1b141938, type: 3}
-  m_Name: InputAction-InputConfigConfirm
+  m_Name: InputAction-LookX
   m_EditorClassIdentifier: 
-  ActionName: 
+  ActionName: Look X

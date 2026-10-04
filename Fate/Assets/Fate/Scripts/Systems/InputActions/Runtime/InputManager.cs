@@ -125,8 +125,17 @@ namespace Fate.Systems.InputActions
             if (definition.KeyboardNegative != KeyCode.None && Input.GetKey(definition.KeyboardNegative))
                 value -= 1f;
 
-            return value;
+            value += ReadMouseAxis(definition.MouseAxis) * definition.MouseSensitivity;
+
+            return Mathf.Clamp(value, -1f, 1f);
         }
+
+        private static float ReadMouseAxis(MouseAxis axis) => axis switch
+        {
+            MouseAxis.X => Input.GetAxis("Mouse X"),
+            MouseAxis.Y => Input.GetAxis("Mouse Y"),
+            _ => 0f,
+        };
 
         private static float ReadGamepadAxis(InputDefinition definition, int gamepadIndex)
         {

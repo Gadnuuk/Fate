@@ -22,6 +22,12 @@ namespace Fate.Systems.InputActions
         [Tooltip("Used when Kind is Axis - held key drives the axis toward -1.")]
         public KeyCode KeyboardNegative = KeyCode.None;
 
+        [Tooltip("Used when Kind is Axis. Read as part of the Keyboard device (mouse and keyboard are the same local input source) - combines additively with KeyboardPositive/KeyboardNegative above if those are also set.")]
+        public MouseAxis MouseAxis = MouseAxis.None;
+
+        [Tooltip("Scales the raw mouse delta before it's combined into the axis value.")]
+        public float MouseSensitivity = 1f;
+
         [Header("Gamepad (normalized across vendors/platforms/any connected controller)")]
         [Tooltip("Used when Kind is Button.")]
         public GamepadButton GamepadButton = GamepadButton.None;

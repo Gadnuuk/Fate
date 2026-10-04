@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../../../UIElementsSchema/UnityEngine.UIElements.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+    <engine:Style src="DeveloperMenu.uss" />
+
+    <engine:VisualElement name="developer-menu-root" class="developer-menu-root" picking-mode="Ignore">
+        <engine:VisualElement name="developer-menu-panel" class="developer-menu-panel">
+            <engine:Label text="Developer Menu" class="developer-menu-panel__header" />
+            <engine:ScrollView name="command-list" class="command-list" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

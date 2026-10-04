@@ -33,4 +33,9 @@ MonoBehaviour:
       sceneName: ui
       scenePath: Assets/Fate/Assets/Scenes/Core/ui.unity
     unloadWhenNextSceneStarts: 0
+  - scene:
+      sceneAsset: {fileID: 102900000, guid: 2b803552f44742645868a5f633210ecc, type: 3}
+      sceneName: debug_ui
+      scenePath: Assets/Fate/Assets/Scenes/Dev/debug_ui.unity
+    unloadWhenNextSceneStarts: 0
   contentBundle: {fileID: 11400000, guid: 735b46d7ffda471e8a76cc63e9ab9fb5, type: 2}

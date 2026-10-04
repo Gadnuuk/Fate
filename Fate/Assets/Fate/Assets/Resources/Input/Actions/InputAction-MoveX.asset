@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca86ed5c9f75ac14fbf8c56b1b141938, type: 3}
   m_Name: InputAction-MoveX
   m_EditorClassIdentifier: 
-  ActionName: MoveX
+  ActionName: Move X

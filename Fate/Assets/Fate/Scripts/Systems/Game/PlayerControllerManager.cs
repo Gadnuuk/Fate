@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Fate.Systems.DeveloperMenu;
 using Fate.Systems.InputActions;
 using Fate.Systems.Player;
 using Fate.Systems.Utilities;
@@ -14,6 +16,9 @@ namespace Fate.Systems.Game
     ///
     /// Persistent singleton (see <see cref="PersistentSingleton{T}"/>), same pattern as
     /// <see cref="ProfileManager"/> - controllers spawned here survive scene loads.
+    ///
+    /// Also the single source of truth for the active render camera(s), in menus and gameplay
+    /// alike - see <see cref="mainCamera"/>, <see cref="GetCameraFor"/>, <see cref="EnableSplitScreen"/>.
     /// </summary>
     public class PlayerControllerManager : PersistentSingleton<PlayerControllerManager>
     {
@@ -24,8 +29,18 @@ namespace Fate.Systems.Game
         [SerializeField]
         private InputContext globalControllerContext;
 
+        [Tooltip("The single render camera used whenever split-screen is disabled. Lives on this persistent singleton so it survives every scene load instead of each scene owning its own.")]
+        [SerializeField]
+        private Camera mainCamera;
+
+        [Tooltip("Authored viewport rects per player count. Swap at runtime via SetLayoutSet to change split-screen layout.")]
+        [SerializeField]
+        private SplitScreenLayoutSet layoutSet;
+
         private PlayerController _globalController;
         private readonly List<PlayerController> _activeControllers = new();
+        private readonly Dictionary<PlayerController, Camera> _splitScreenCameras = new();
+        private bool _isSplitScreenEnabled;
 
         /// <summary>The single controller that listens to every device regardless of player, used to drive every <see cref="Pawn.IsGlobal"/> pawn. Spawned on first access.</summary>
         public PlayerController GlobalController
@@ -84,6 +99,85 @@ namespace Fate.Systems.Game
             PlayerController controller = Instantiate(playerControllerPrefab, transform);
             controller.Initialize(ownerPlayerId, targetDevice);
             return controller;
+        }
+
+        /// <summary>The render camera a possessed pawn should drive: <paramref name="controller"/>'s split-screen camera if split-screen is on, otherwise <see cref="mainCamera"/>.</summary>
+        public Camera GetCameraFor(PlayerController controller)
+        {
+            if (_isSplitScreenEnabled && _splitScreenCameras.TryGetValue(controller, out Camera splitCamera))
+                return splitCamera;
+
+            return mainCamera;
+        }
+
+        [DebugCommand("Enable Split Screen")]
+        public static void SetSplitScreenEnabled()
+        {
+            Instance?.EnableSplitScreen();
+        }
+
+        [DebugCommand("Disable Split Screen")]
+        public static void SetSplitScreenDisabled()
+        {
+            Instance?.DisableSplitScreen();
+        }
+
+        /// <summary>Swaps the authored layout set used by <see cref="EnableSplitScreen"/>, so layouts can be changed at runtime.</summary>
+        public void SetLayoutSet(SplitScreenLayoutSet newLayoutSet)
+        {
+            layoutSet = newLayoutSet;
+        }
+
+        /// <summary>
+        /// Spawns one camera per entry in <see cref="ActiveControllers"/>, rect-ed according to its
+        /// position in that list via <see cref="layoutSet"/>, and disables <see cref="mainCamera"/>.
+        /// The global controller never gets a split-screen camera. The AudioListener is only ever
+        /// active on the first player's camera.
+        /// </summary>
+        public void EnableSplitScreen()
+        {
+            DisableSplitScreen();
+
+            int count = _activeControllers.Count;
+            if (count == 0)
+                return;
+
+            SplitScreenLayoutSet.SplitScreenLayout[] layouts = layoutSet.LayoutsByPlayerCount;
+            Rect[] rects = layouts[Mathf.Clamp(count, 1, layouts.Length) - 1].PlayerRects;
+
+            for (int i = 0; i < count; i++)
+            {
+                Camera splitCamera = Instantiate(mainCamera, mainCamera.transform.parent);
+                splitCamera.transform.parent = _activeControllers[i].transform;
+                splitCamera.transform.localPosition = Vector3.zero;
+                splitCamera.transform.localRotation = Quaternion.identity;
+
+                splitCamera.gameObject.tag = "Untagged"; // keeps Camera.main unambiguous - mainCamera itself keeps the MainCamera tag
+                splitCamera.rect = rects[Mathf.Min(i, rects.Length - 1)];
+
+                AudioListener listener = splitCamera.GetComponent<AudioListener>();
+                if (listener != null)
+                    listener.enabled = i == 0;
+
+                _splitScreenCameras[_activeControllers[i]] = splitCamera;
+            }
+
+            mainCamera.gameObject.SetActive(false);
+            _isSplitScreenEnabled = true;
+        }
+
+        /// <summary>Destroys every spawned split-screen camera and re-activates <see cref="mainCamera"/>.</summary>
+        public void DisableSplitScreen()
+        {
+            foreach (Camera splitCamera in _splitScreenCameras.Values)
+            {
+                if (splitCamera != null)
+                    Destroy(splitCamera.gameObject);
+            }
+
+            _splitScreenCameras.Clear();
+            _isSplitScreenEnabled = false;
+            mainCamera.gameObject.SetActive(true);
         }
     }
 }

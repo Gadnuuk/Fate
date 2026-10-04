@@ -1,0 +1,40 @@
+.developer-menu-root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.developer-menu-panel {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 280px;
+    max-height: 80%;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.developer-menu-panel__header {
+    font-size: 16px;
+    -unity-font-style: bold;
+    color: rgb(255, 196, 0);
+    margin-bottom: 8px;
+}
+
+.command-list Button {
+    margin: 4px 0;
+    padding: 6px 8px;
+    border-width: 2px;
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.command-list Button:focus {
+    border-color: rgb(255, 196, 0);
+    background-color: rgba(255, 196, 0, 0.18);
+}
+
+.command-list Button:hover {
+    border-color: rgba(255, 196, 0, 0.6);
+}
