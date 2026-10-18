@@ -11,36 +11,15 @@ namespace Fate.Systems.Content
     /// plus its game-mode layer scenes). Call LoadBundle to swap out whatever content is
     /// currently loaded - the previous bundle's scenes are unloaded first.
     /// </summary>
-    public class ContentSceneManager : MonoBehaviour
+    public class ContentSceneManager : PersistentSingleton<ContentSceneManager>
     {
-        private static ContentSceneManager instance;
         private static readonly List<Scene> LoadedScenes = new();
 
         public static ContentBundle ActiveBundle { get; private set; }
 
-        private void Awake()
-        {
-            if (instance != null && instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-
-        private void OnDestroy()
-        {
-            if (instance != this)
-                return;
-
-            instance = null;
-        }
-
         public static void LoadBundle(ContentBundle bundle)
         {
-            if (instance == null)
+            if (Instance == null)
             {
                 Debug.LogError($"{nameof(ContentSceneManager)} has no active instance in the scene.");
                 return;
@@ -52,7 +31,7 @@ namespace Fate.Systems.Content
                 return;
             }
 
-            instance.StartCoroutine(instance.LoadBundleRoutine(bundle));
+            Instance.StartCoroutine(Instance.LoadBundleRoutine(bundle));
         }
 
         private IEnumerator LoadBundleRoutine(ContentBundle bundle)

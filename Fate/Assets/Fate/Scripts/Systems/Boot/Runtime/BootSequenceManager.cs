@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Fate.Systems.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -48,9 +47,6 @@ namespace Fate.Systems.Boot
                 previousEntry = entry;
                 previousScene = scene;
             }
-
-            if (bootSequence.ContentBundle != null)
-                ContentSceneManager.LoadBundle(bootSequence.ContentBundle);
         }
 
         private IEnumerator WaitForSceneReady(Scene scene)

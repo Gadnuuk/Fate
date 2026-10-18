@@ -18,11 +18,15 @@ namespace Fate.Systems.Content
         [Tooltip("Scenes layered on top of the base scene for a specific game mode.")]
         [SerializeField] private List<SceneReference> layers = new();
 
+        [Tooltip("Scenes available to be streamed in/out on top of baseScene+layers once gameplay is running (e.g. per-region chunks). Not loaded automatically yet - reserved for a future level-streaming system.")]
+        [SerializeField] private List<SceneReference> streamingScenes = new();
+
         [Tooltip("Server-side pawn spawner for this bundle's gameplay (see GameModeBase). Instantiated into the gameplay scene once it finishes loading on the server; left unset for bundles that never host gameplay (e.g. a menu/lobby bundle).")]
         [SerializeField] private GameModeBase gameModePrefab;
 
         public SceneReference BaseScene => baseScene;
         public IReadOnlyList<SceneReference> Layers => layers;
+        public IReadOnlyList<SceneReference> StreamingScenes => streamingScenes;
         public GameModeBase GameModePrefab => gameModePrefab;
     }
 }

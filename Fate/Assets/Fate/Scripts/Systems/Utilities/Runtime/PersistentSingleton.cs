@@ -34,6 +34,9 @@ namespace Fate.Systems.Utilities
             }
         }
 
+        [SerializeField]
+        private bool dontDestroyOnLoad = false;
+
         protected virtual void Awake()
         {
             if (instance != null && instance != this)
@@ -43,7 +46,12 @@ namespace Fate.Systems.Utilities
             }
 
             instance = (T)this;
-            DontDestroyOnLoad(gameObject);
+
+            if(dontDestroyOnLoad)
+            {
+                Debug.Log($"PeristentSingleton.Awake() {gameObject.name} has been configured to DontDestroyOnLoad.");
+                DontDestroyOnLoad(gameObject);
+            }
         }
 
         protected virtual void OnDestroy()

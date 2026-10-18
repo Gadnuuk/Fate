@@ -73,8 +73,8 @@ namespace Fate.Systems.MainMenu
             _loginCancelButton = root.Q<Button>("login-cancel-button");
             _modeQuickPlayButton = root.Q<Button>("mode-quickplay-button");
             _modeCustomMatchButton = root.Q<Button>("mode-custommatch-button");
-            _modeSandboxButton = root.Q<Button>("mode-sandbox-button");
-            _modeJoinPartyButton = root.Q<Button>("mode-joinparty-button");
+            _modeSandboxButton = root.Q<Button>("mode-host-button");
+            _modeJoinPartyButton = root.Q<Button>("mode-join-button");
             _configureControllersButton = root.Q<Button>("configure-controllers-button");
             _optionsButton = root.Q<Button>("options-button");
             _creditsButton = root.Q<Button>("credits-button");
@@ -89,8 +89,8 @@ namespace Fate.Systems.MainMenu
             _loginCancelButton.clicked += OnLoginCancelClicked;
             _modeQuickPlayButton.clicked += () => Debug.Log("Quick Play - not yet implemented.");
             _modeCustomMatchButton.clicked += () => Debug.Log("Custom Match - not yet implemented.");
-            _modeSandboxButton.clicked += () => Debug.Log("Sandbox - not yet implemented.");
-            _modeJoinPartyButton.clicked += () => Debug.Log("Join Party - not yet implemented.");
+            _modeSandboxButton.clicked += () => Debug.Log("Host - not yet implemented.");
+            _modeJoinPartyButton.clicked += () => Debug.Log("Join - not yet implemented.");
             _configureControllersButton.clicked += OnConfigureControllersClicked;
             _optionsButton.clicked += () => Debug.Log("Options - not yet implemented.");
             _creditsButton.clicked += () => Debug.Log("Credits - not yet implemented.");
