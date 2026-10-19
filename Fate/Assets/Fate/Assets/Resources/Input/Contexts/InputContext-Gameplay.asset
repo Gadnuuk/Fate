@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a610f6ccdbc8440b522d3a40e1fb9d, type: 3}
   m_Name: InputContext-Gameplay
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 11400000, guid: adb472d8bc6cdbf4e8f42860daeb41ce, type: 2}
+  - {fileID: 11400000, guid: 37ea5a1c072b26342827b05628d12a73, type: 2}
+  - {fileID: 11400000, guid: 91caed61f3c29474eaf2eaba31e23cb2, type: 2}
+  - {fileID: 11400000, guid: f434ff3d9a892bc43a29546eb1c2e393, type: 2}
+  - {fileID: 11400000, guid: 6b693a180b4ef6447b555c573000ffe2, type: 2}

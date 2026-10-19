@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Fate.Systems.Content;
 using Fate.Systems.Game;
 using Fate.Systems.Player;
 using Fate.Systems.PlayerConfig;
@@ -33,6 +34,9 @@ namespace Fate.Systems.MainMenu
         // Unity "fake null" if it's already gone, which the null-check below handles safely).
         private PlayerControllerConfigWindow _configWindow;
 
+        [Tooltip("Loaded via ContentSceneManager when Host is clicked in the main menu.")]
+        [SerializeField] private ContentBundle lobbyBundle;
+
         private VisualElement _initScreen;
         private VisualElement _mainMenuScreen;
         private VisualElement _loginScreen;
@@ -45,8 +49,8 @@ namespace Fate.Systems.MainMenu
         private Button _loginCancelButton;
         private Button _modeQuickPlayButton;
         private Button _modeCustomMatchButton;
-        private Button _modeSandboxButton;
-        private Button _modeJoinPartyButton;
+        private Button _hostButton;
+        private Button _joinPartyButton;
         private Button _configureControllersButton;
         private Button _optionsButton;
         private Button _creditsButton;
@@ -73,8 +77,8 @@ namespace Fate.Systems.MainMenu
             _loginCancelButton = root.Q<Button>("login-cancel-button");
             _modeQuickPlayButton = root.Q<Button>("mode-quickplay-button");
             _modeCustomMatchButton = root.Q<Button>("mode-custommatch-button");
-            _modeSandboxButton = root.Q<Button>("mode-host-button");
-            _modeJoinPartyButton = root.Q<Button>("mode-join-button");
+            _hostButton = root.Q<Button>("mode-host-button");
+            _joinPartyButton = root.Q<Button>("mode-join-button");
             _configureControllersButton = root.Q<Button>("configure-controllers-button");
             _optionsButton = root.Q<Button>("options-button");
             _creditsButton = root.Q<Button>("credits-button");
@@ -89,16 +93,30 @@ namespace Fate.Systems.MainMenu
             _loginCancelButton.clicked += OnLoginCancelClicked;
             _modeQuickPlayButton.clicked += () => Debug.Log("Quick Play - not yet implemented.");
             _modeCustomMatchButton.clicked += () => Debug.Log("Custom Match - not yet implemented.");
-            _modeSandboxButton.clicked += () => Debug.Log("Host - not yet implemented.");
-            _modeJoinPartyButton.clicked += () => Debug.Log("Join - not yet implemented.");
+            _hostButton.clicked += OnHostClicked;
+            _joinPartyButton.clicked += () => Debug.Log("Join - not yet implemented.");
             _configureControllersButton.clicked += OnConfigureControllersClicked;
             _optionsButton.clicked += () => Debug.Log("Options - not yet implemented.");
             _creditsButton.clicked += () => Debug.Log("Credits - not yet implemented.");
             _configWindow.Closed += OnConfigureControllersClosed;
 
-            SetVisible(_initScreen, true);
-            SetVisible(_mainMenuScreen, false);
-            SetVisible(_loginScreen, false);
+            // ProfileManager is a persistent singleton (see its field declaration above) - any
+            // profiles logged in earlier this session (e.g. before a Host -> Back to Main Menu
+            // round trip, which reloads this scene and re-runs OnEnable) are still logged in, so
+            // skip straight past the mandatory first-login screen instead of asking again.
+            if (_profileManager.LoggedInProfiles.Count > 0)
+            {
+                RefreshProfileList();
+                SetVisible(_initScreen, false);
+                SetVisible(_mainMenuScreen, true);
+                SetVisible(_loginScreen, false);
+            }
+            else
+            {
+                SetVisible(_initScreen, true);
+                SetVisible(_mainMenuScreen, false);
+                SetVisible(_loginScreen, false);
+            }
         }
 
         private void OnDisable()
@@ -107,6 +125,7 @@ namespace Fate.Systems.MainMenu
             _addProfileButton.clicked -= OnAddProfileClicked;
             _createProfileButton.clicked -= OnCreateProfileClicked;
             _loginCancelButton.clicked -= OnLoginCancelClicked;
+            _hostButton.clicked -= OnHostClicked;
             _configureControllersButton.clicked -= OnConfigureControllersClicked;
 
             if (_configWindow != null)
@@ -160,6 +179,16 @@ namespace Fate.Systems.MainMenu
         {
             SetVisible(_mainMenuScreen, true);
             RefreshProfileList(); // device assignments may have just changed - refresh the per-player device labels
+        }
+
+        // The lobby is its own content scene now (see ContentBundle / ContentSceneManager) - loading
+        // it unloads this main menu scene along with it, so there's no need to hide this screen or
+        // restore it later the way OnConfigureControllersClicked does for the (same-scene) config
+        // window; returning to the main menu is just another ContentSceneManager.LoadBundle call,
+        // made by LobbyUIController.OnBackClicked.
+        private void OnHostClicked()
+        {
+            ContentSceneManager.LoadBundle(lobbyBundle);
         }
 
         private void OnCreateProfileClicked()

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../../../UIElementsSchema/UnityEngine.UIElements.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+    <engine:Style src="Lobby.uss" />
+
+    <engine:VisualElement name="lobby-root" class="lobby-root">
+
+        <engine:VisualElement name="left-panel" class="left-panel">
+            <engine:VisualElement name="hosting-controls" class="hosting-controls">
+                <engine:Button name="start-hosting-button" text="Start Hosting" class="menu-button" />
+                <engine:Button name="stop-hosting-button" text="Stop Hosting" class="menu-button" />
+            </engine:VisualElement>
+
+            <engine:ScrollView name="player-list" class="player-list" />
+
+            <engine:Button name="back-to-main-menu-button" text="Back to Main Menu" class="menu-button back-button" />
+        </engine:VisualElement>
+
+        <engine:VisualElement name="right-panel" class="right-panel">
+            <engine:Label text="Game Setup" class="right-panel__header" />
+
+            <engine:DropdownField name="content-bundle-dropdown" label="Content Bundle" class="content-bundle-dropdown" />
+
+            <engine:VisualElement class="right-panel__spacer" />
+
+            <engine:Button name="start-game-button" text="Start Game" class="menu-button start-game-button" />
+        </engine:VisualElement>
+
+    </engine:VisualElement>
+</engine:UXML>

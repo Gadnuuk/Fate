@@ -29,6 +29,10 @@ namespace Fate.Systems.Game
         [SerializeField]
         private InputContext globalControllerContext;
 
+        [Tooltip("Switched to on a per-player controller's ActiveContext by PawnNetworkBridge once it possesses that controller with a spawned networked pawn - see PawnNetworkBridge.OnStartClient.")]
+        [SerializeField]
+        private InputContext gameplayContext;
+
         [Tooltip("The single render camera used whenever split-screen is disabled. Lives on this persistent singleton so it survives every scene load instead of each scene owning its own.")]
         [SerializeField]
         private Camera mainCamera;
@@ -60,6 +64,9 @@ namespace Fate.Systems.Game
 
         /// <summary>Every currently spawned per-player controller (excludes <see cref="GlobalController"/>).</summary>
         public IReadOnlyList<PlayerController> ActiveControllers => _activeControllers;
+
+        /// <summary>The <see cref="InputContext"/> a per-player controller should switch to once it possesses a spawned networked pawn - see <see cref="PawnNetworkBridge.OnStartClient"/>.</summary>
+        public InputContext GameplayContext => gameplayContext;
 
         /// <summary>Spawns a <see cref="PlayerController"/> bound to <paramref name="playerId"/> and <paramref name="device"/>.</summary>
         public PlayerController SpawnController(PlayerId playerId, InputDevice device)

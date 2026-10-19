@@ -39,7 +39,7 @@ MonoBehaviour:
       scenePath: Assets/Fate/Assets/Scenes/Dev/debug_ui.unity
     unloadWhenNextSceneStarts: 0
   - scene:
-      sceneAsset: {fileID: 102900000, guid: 674accacf312dd049a8a1111e013c5ae, type: 3}
-      sceneName: main_menu
-      scenePath: Assets/Fate/Assets/Scenes/core/main_menu.unity
+      sceneAsset: {fileID: 102900000, guid: 66918ad52d9422061066388494874345, type: 3}
+      sceneName: main_content
+      scenePath: Assets/Fate/Assets/Scenes/Core/main_content.unity
     unloadWhenNextSceneStarts: 0

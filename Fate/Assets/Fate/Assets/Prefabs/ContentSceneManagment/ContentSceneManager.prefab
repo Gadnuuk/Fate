@@ -42,6 +42,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b60034f3611efb1469a88dee1448ff3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   dontDestroyOnLoad: 0
+  defaultBundle: {fileID: 11400000, guid: 133afac8f0bccfb23643a9acaf8f67da, type: 2}

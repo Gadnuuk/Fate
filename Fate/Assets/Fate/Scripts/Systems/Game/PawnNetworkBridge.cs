@@ -21,8 +21,11 @@ namespace Fate.Systems.Game
     /// Owning-client flow: once spawned, resolves the synced <see cref="PlayerId"/> to whichever
     /// local <see cref="PlayerController"/> was already created for it (see
     /// <see cref="PlayerControllerManager.TryGetController"/> - today that controller must exist
-    /// before hosting/joining, see Assets/Fate/Docs/SplitScreenNetworkedPlayers.md) and possesses
-    /// this pawn with it. Non-owning clients never resolve/possess anything.
+    /// before hosting/joining, see Assets/Fate/Docs/SplitScreenNetworkedPlayers.md), possesses
+    /// this pawn with it, and switches that controller onto
+    /// <see cref="PlayerControllerManager.GameplayContext"/> so its input is actually relayed to
+    /// the pawn it now possesses (see <see cref="PlayerController.ActiveContext"/>). Non-owning
+    /// clients never resolve/possess/switch anything.
     /// </summary>
     [RequireComponent(typeof(Pawn))]
     public class PawnNetworkBridge : NetworkBehaviour
@@ -65,6 +68,11 @@ namespace Fate.Systems.Game
 
             _possessingController = controller;
             controller.Possess(_pawn);
+
+            // Switches the controller from whatever context it was using (e.g. a menu context,
+            // if the local player was still on a UI screen) to the one meant for driving a
+            // spawned pawn, now that it actually has one to drive.
+            controller.ActiveContext = PlayerControllerManager.Instance.GameplayContext;
         }
 
         public override void OnStopClient()

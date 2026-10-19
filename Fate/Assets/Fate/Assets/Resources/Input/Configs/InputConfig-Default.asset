@@ -45,7 +45,7 @@ MonoBehaviour:
       KeyboardNegative: 97
       MouseAxis: 0
       MouseSensitivity: 1
-      GamepadButton: 1
+      GamepadButton: 0
       GamepadAxis: 1
       GamepadPositive: 14
       GamepadNegative: 13
@@ -68,7 +68,7 @@ MonoBehaviour:
       KeyboardPositive: 275
       KeyboardNegative: 276
       MouseAxis: 1
-      MouseSensitivity: 1
+      MouseSensitivity: 10
       GamepadButton: 0
       GamepadAxis: 3
       GamepadPositive: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
       KeyboardPositive: 273
       KeyboardNegative: 274
       MouseAxis: 2
-      MouseSensitivity: 1
+      MouseSensitivity: 10
       GamepadButton: 0
-      GamepadAxis: 2
+      GamepadAxis: 4
       GamepadPositive: 0
       GamepadNegative: 0

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerControllerPrefab: {fileID: 452405235029752965, guid: 6b3efb0fcb0cc7c4aa703d1d584311ca, type: 3}
   globalControllerContext: {fileID: 11400000, guid: c743b6ace5f8b22429cd3c3b17dbd8bc, type: 2}
+  gameplayContext: {fileID: 11400000, guid: 203fe595ffc4d6e42a369aa33e350b77, type: 2}
   mainCamera: {fileID: 4628061094125534702}
   layoutSet: {fileID: 11400000, guid: c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8, type: 2}
 --- !u!1 &4628061094125534700

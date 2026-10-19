@@ -15,9 +15,11 @@ namespace Fate.Systems.Game
 
         private Camera _targetCamera;
 
+        private PlayerController _playerController;
+
         public void OnPossessed(PlayerController controller)
         {
-            _targetCamera = PlayerControllerManager.Instance.GetCameraFor(controller);
+            _playerController = controller;
         }
 
         public void OnUnpossessed(PlayerController controller)
@@ -29,6 +31,8 @@ namespace Fate.Systems.Game
         // split-screen camera (e.g. via DisableSplitScreen) stops updates cleanly with no event wiring needed.
         private void LateUpdate()
         {
+            _targetCamera = PlayerControllerManager.Instance.GetCameraFor(_playerController);
+
             if (_targetCamera == null)
                 return;
 

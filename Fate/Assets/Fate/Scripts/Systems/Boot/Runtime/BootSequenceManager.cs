@@ -9,9 +9,21 @@ namespace Fate.Systems.Boot
     {
         [SerializeField] private BootSequence bootSequence;
 
+        private Coroutine bootCoroutine = null;
+
         private void Start()
         {
-            StartCoroutine(RunBootSequence());
+            Reboot();
+        }
+
+        public void Reboot()
+        {
+            if(bootCoroutine != null)
+            {
+                StopCoroutine(bootCoroutine);
+            }
+
+            bootCoroutine = StartCoroutine(RunBootSequence());
         }
 
         private IEnumerator RunBootSequence()
